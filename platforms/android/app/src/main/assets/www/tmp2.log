@@ -1,0 +1,405 @@
+--------- beginning of main
+08-30 11:15:05.054  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:05.054  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:05.054  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:05.055  1204  1204 D pr      : onReceive
+08-30 11:15:05.055  1204  1204 D pr      : UpdateViews
+08-30 11:15:05.045   926   926 W memtrack@1.0-se: type=1400 audit(0.0:1408702): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:hal_memtrack_default:s0 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=1 pcomm="init" pgid=1 pgcomm="init"
+08-30 11:15:05.045   926   926 W memtrack@1.0-se: type=1400 audit(0.0:1408703): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:hal_memtrack_default:s0 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=1 pcomm="init" pgid=1 pgcomm="init"
+08-30 11:15:05.079  1204  1204 W pr      : Widgets list is empty
+08-30 11:15:05.115   926   926 W memtrack@1.0-se: type=1400 audit(0.0:1408704): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:hal_memtrack_default:s0 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=1 pcomm="init" pgid=1 pgcomm="init"
+08-30 11:15:05.115   926   926 W memtrack@1.0-se: type=1400 audit(0.0:1408705): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:hal_memtrack_default:s0 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=1 pcomm="init" pgid=1 pgcomm="init"
+08-30 11:15:05.245  9925  9952 E memtrack: Couldn't load memtrack module
+08-30 11:15:05.245  9925  9952 W android.os.Debug: failed to get memory consumption info: -1
+08-30 11:15:08.198  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:08.198  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:08.198  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:08.216  1663  1976 D CompatibilityInfo: mCompatibilityFlags - 10
+08-30 11:15:08.216  1663  1976 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:08.216  1663  1976 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:08.240  1663  7766 D CompatibilityInfo: mCompatibilityFlags - 10
+08-30 11:15:08.240  1663  7766 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:08.240  1663  7766 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:08.248  1663 16406 D CompatibilityInfo: mCompatibilityFlags - 10
+08-30 11:15:08.249  1663 16406 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:08.249  1663 16406 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:08.266  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 10
+08-30 11:15:08.266  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:08.266  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:08.284  9462 16872 E WakeLock: CMWakeLock was already released!
+08-30 11:15:08.284  9462 16872 E WakeLock: java.lang.RuntimeException: WakeLock under-locked CMWakeLock
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1502)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1462)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at amvo.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at amvo.c(:com.google.android.gms@12878025@12.8.78 (040408-209461520):3)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at amvo.b(:com.google.android.gms@12878025@12.8.78 (040408-209461520):9)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at dpx.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):10)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at dpx.handleMessage(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at pmn.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):6)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at pmz.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):28)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at ptb.run(Unknown Source:7)
+08-30 11:15:08.284  9462 16872 E WakeLock: 	at java.lang.Thread.run(Thread.java:764)
+08-30 11:15:09.559  9996 16150 I EventLogSendingHelper: Sending log events.
+08-30 11:15:10.010  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:10.010  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:10.010  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:10.013  1204  1204 D pr      : onReceive
+08-30 11:15:10.013  1204  1204 D pr      : UpdateViews
+08-30 11:15:10.056  1204  1204 W pr      : Widgets list is empty
+08-30 11:15:13.285   926   926 W memtrack@1.0-se: type=1400 audit(0.0:1408706): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:hal_memtrack_default:s0 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=1 pcomm="init" pgid=1 pgcomm="init"
+08-30 11:15:14.158  9754  9774 E memtrack: Couldn't load memtrack module
+08-30 11:15:14.159  9754  9774 W android.os.Debug: failed to get memory consumption info: -1
+08-30 11:15:14.216  9550  9602 I Finsky  : [22468] com.google.android.finsky.bn.ab.run(5): Stats for Executor: BlockingExecutor com.google.android.finsky.bn.ac@4278b18[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+08-30 11:15:14.216  9550  9602 I Finsky  : [22468] com.google.android.finsky.bn.ab.run(5): Stats for Executor: LightweightExecutor com.google.android.finsky.bn.ac@dc7b971[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+08-30 11:15:15.010  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.011  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.011  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.014  1204  1204 D pr      : onReceive
+08-30 11:15:15.014  1204  1204 D pr      : UpdateViews
+08-30 11:15:15.059  1204  1204 W pr      : Widgets list is empty
+08-30 11:15:15.233  9925  9952 E memtrack: Couldn't load memtrack module
+08-30 11:15:15.233  9925  9952 W android.os.Debug: failed to get memory consumption info: -1
+08-30 11:15:15.428   939  1021 E ANDR-PERF-OPTSHANDLER: Warning: Core control support not present for lock_min_cores on cluster 0 for this target
+08-30 11:15:15.428   939  1021 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [4, 0]
+--------- beginning of system
+08-30 11:15:15.490  1663  2375 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.ombarus.dicethrow/.MainActivity bnds=[231,464][437,712]} from uid 10108
+08-30 11:15:15.492   939   939 E ANDR-PERF-MPCTL: hint lookup failed
+08-30 11:15:15.494  1663  2375 E ANDR-PERF-JNI: com_qualcomm_qtiperformance_native_perf_io_prefetch_start
+08-30 11:15:15.495   602   602 W /system/bin/hwservicemanager: getTransportFromManifest: Cannot find entry vendor.qti.hardware.iop@1.0::IIop in either framework or device manifest, using default transport.
+08-30 11:15:15.495  1663  2375 E ANDR-PERF-JNI: gIOPHAl initialized
+08-30 11:15:15.499  1663  2375 D ActivityTrigger: activityStartTrigger: Activity is Triggerred in full screen ApplicationInfo{a2f31a5 com.ombarus.dicethrow}
+08-30 11:15:15.499  1663  2375 E ActivityTrigger: activityStartTrigger: not whiteListedcom.ombarus.dicethrow/com.ombarus.dicethrow.MainActivity/10000
+08-30 11:15:15.499  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.499  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.499  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.500  1663  2375 D ActivityTrigger: activityResumeTrigger: The activity in ApplicationInfo{a2f31a5 com.ombarus.dicethrow} is now in focus and seems to be in full-screen mode
+08-30 11:15:15.500  1663  2375 E ActivityTrigger: activityResumeTrigger: not whiteListedcom.ombarus.dicethrow/com.ombarus.dicethrow.MainActivity/10000
+08-30 11:15:15.500  1663  2375 D ActivityTrigger: ActivityTrigger activityPauseTrigger 
+08-30 11:15:15.506  1663  2375 D ActivityTrigger: activityResumeTrigger: The activity in ApplicationInfo{a2f31a5 com.ombarus.dicethrow} is now in focus and seems to be in full-screen mode
+08-30 11:15:15.506  1663  2375 E ActivityTrigger: activityResumeTrigger: not whiteListedcom.ombarus.dicethrow/com.ombarus.dicethrow.MainActivity/10000
+08-30 11:15:15.506   939   939 E ANDR-PERF-MPCTL: hint lookup failed
+08-30 11:15:15.514  1663  2375 I ActivityManager: Start proc 16898:com.ombarus.dicethrow/u0a331 for activity com.ombarus.dicethrow/.MainActivity
+08-30 11:15:15.515  1663  2375 E ANDR-PERF-JNI: com_qualcomm_qtiperformance_native_perf_io_prefetch_start
+08-30 11:15:15.515   602   602 W /system/bin/hwservicemanager: getTransportFromManifest: Cannot find entry vendor.qti.hardware.iop@1.0::IIop in either framework or device manifest, using default transport.
+08-30 11:15:15.515  1663  2375 E ANDR-PERF-JNI: gIOPHAl initialized
+08-30 11:15:15.522 16898 16898 I zygote64: Late-enabling -Xcheck:jni
+08-30 11:15:15.548  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.548  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.548  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.555  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.555  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.555  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.596 16898 16898 I CordovaLog: Changing log level to DEBUG(3)
+08-30 11:15:15.596 16898 16898 I CordovaActivity: Apache Cordova native platform version 7.0.0 is starting
+08-30 11:15:15.596 16898 16898 D CordovaActivity: CordovaActivity.onCreate()
+08-30 11:15:15.608 16898 16898 I WebViewFactory: Loading com.android.chrome version 68.0.3440.91 (code 344009152)
+08-30 11:15:15.613  9996  9996 I StreamRenderer: cleanUpRendererScope(nowcards-3413173575465962410)
+08-30 11:15:15.619  9996 12966 I PBSessionCacheImpl: Deleted sessionId[565111766884] from persistence.
+08-30 11:15:15.629  9996  9996 W SearchServiceCore: Abort, client detached.
+08-30 11:15:15.629  9996  9996 I StreamController: cleanUpControllerScope(nowcards-3413173575465962410)
+08-30 11:15:15.642  9996 16152 I WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::i, WorkerId=context, id=c4f27d4}
+08-30 11:15:15.645  9996 16152 I WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::k, WorkerId=context, id=dcebd7d}
+08-30 11:15:15.645  9996 16152 I WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::l, WorkerId=context, id=a70f472}
+08-30 11:15:15.646  9996 16152 I WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::j, WorkerId=context, id=ebf00c3}
+08-30 11:15:15.646  9996 16152 I WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::n, WorkerId=context, id=360ed40}
+08-30 11:15:15.652 16898 16898 I cr_LibraryLoader: Time to load native libraries: 5 ms (timestamps 6543-6548)
+08-30 11:15:15.676 16898 16919 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.ombarus.dicethrow/app_webview/variations_seed_new": /data/user/0/com.ombarus.dicethrow/app_webview/variations_seed_new (No such file or directory)
+08-30 11:15:15.676  9462 16872 E WakeLock: CMWakeLock was already released!
+08-30 11:15:15.676  9462 16872 E WakeLock: java.lang.RuntimeException: WakeLock under-locked CMWakeLock
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1502)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1462)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at amvo.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at amvo.c(:com.google.android.gms@12878025@12.8.78 (040408-209461520):3)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at amvo.b(:com.google.android.gms@12878025@12.8.78 (040408-209461520):9)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at dpx.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):10)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at dpx.handleMessage(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at pmn.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):6)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at pmz.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):28)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at ptb.run(Unknown Source:7)
+08-30 11:15:15.676  9462 16872 E WakeLock: 	at java.lang.Thread.run(Thread.java:764)
+08-30 11:15:15.685 16898 16898 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+08-30 11:15:15.686 16898 16898 I cr_LibraryLoader: Expected native library version number "68.0.3440.91", actual native library version number "68.0.3440.91"
+08-30 11:15:15.692  9462 16504 E WakeLock: CMWakeLock was already released!
+08-30 11:15:15.692  9462 16504 E WakeLock: java.lang.RuntimeException: WakeLock under-locked CMWakeLock
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1502)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1462)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at amvo.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at amvo.c(:com.google.android.gms@12878025@12.8.78 (040408-209461520):3)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at amvo.b(:com.google.android.gms@12878025@12.8.78 (040408-209461520):9)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at dpx.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):10)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at dpx.handleMessage(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at pmn.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):6)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at pmz.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):28)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at ptb.run(Unknown Source:7)
+08-30 11:15:15.692  9462 16504 E WakeLock: 	at java.lang.Thread.run(Thread.java:764)
+08-30 11:15:15.697 16898 16920 W cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.android.chrome, sandboxed = true
+08-30 11:15:15.705 16898 16898 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+08-30 11:15:15.708 16898 16898 I cr_base : Android Locale: fr_CA requires .pak files: [fr]
+08-30 11:15:15.710 16898 16898 W ResourceType: Failure getting entry for 0x7f1204a3 (t=17 e=1187) (error -2147483647)
+08-30 11:15:15.712 16922 16922 E /system/bin/webview_zygote32: failed to make and chown /acct/uid_99069: Permission denied
+08-30 11:15:15.712 16922 16922 E Zygote  : createProcessGroup(99069, 0) failed: Permission denied
+08-30 11:15:15.714 16922 16922 W /system/bin/webview_zygote32: Using default instruction set features for ARM CPU variant (cortex-a9) using conservative defaults
+08-30 11:15:15.716  1663  7766 I ActivityManager: Start proc 16922:com.android.chrome:sandboxed_process0/u0i69 for webview_service com.ombarus.dicethrow/org.chromium.content.app.SandboxedProcessService0
+08-30 11:15:15.738  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.738  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.738  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.747 16922 16922 I SamplingProfilerIntegration: Profiling disabled.
+08-30 11:15:15.750  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.750  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.750  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.762 16898 16898 I chromium: [INFO:aw_field_trial_creator.cc(52)] First-WebView-Experiment found, group=Enabled
+08-30 11:15:15.763  1663  2375 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:15.763  1663  2375 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:15.763  1663  2375 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:15.773  9462  9711 E WakeLock: GCoreFlp was already released!
+08-30 11:15:15.773  9462  9711 E WakeLock: java.lang.RuntimeException: WakeLock under-locked GCoreFlp
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1502)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1462)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at amvo.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at amvo.c(:com.google.android.gms@12878025@12.8.78 (040408-209461520):3)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at amvo.b(:com.google.android.gms@12878025@12.8.78 (040408-209461520):9)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at ayml.dispatchMessage(:com.google.android.gms@12878025@12.8.78 (040408-209461520):15)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at android.os.Looper.loop(Looper.java:251)
+08-30 11:15:15.773  9462  9711 E WakeLock: 	at android.os.HandlerThread.run(HandlerThread.java:65)
+08-30 11:15:15.775 16947 16947 E asset   : setgid: Operation not permitted
+08-30 11:15:15.797  9462 10014 I Places  : ?: PlacesBleScanner stop()
+08-30 11:15:15.799 16922 16922 I cr_ChildProcessService: Creating new ChildProcessService pid=16922
+08-30 11:15:15.800  9462  9462 I BeaconBle: ZERO_POWER is disabled.
+08-30 11:15:15.800  9462  9462 I BeaconBle: 'L' hardware scan: scan stopped, no powered clients
+08-30 11:15:15.800  9462  9462 I BeaconBle: Places requested to stop scan
+08-30 11:15:15.800  9462  9462 I BeaconBle: Scan canceled successfully.
+08-30 11:15:15.801 16898 16898 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<ul>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/SafeBrowsingResponse;
+08-30 11:15:15.801 16898 16898 I zygote64:   at xf com.android.webview.chromium.WebViewChromiumFactoryProvider.a(android.webkit.WebView, android.content.Context) (SourceFile:209)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.webview.chromium.WebViewChromium.init(java.util.Map, boolean) (SourceFile:63)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:651)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context, android.util.AttributeSet) (SystemWebView.java:47)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context) (SystemWebView.java:43)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebViewEngine.<init>(android.content.Context, org.apache.cordova.CordovaPreferences) (SystemWebViewEngine.java:76)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaWebViewImpl.createEngine(android.content.Context, org.apache.cordova.CordovaPreferences) (CordovaWebViewImpl.java:80)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaActivity.makeWebViewEngine() (CordovaActivity.java:206)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebView org.apache.cordova.CordovaActivity.makeWebView() (CordovaActivity.java:202)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.init() (CordovaActivity.java:146)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.loadUrl(java.lang.String) (CordovaActivity.java:224)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.ombarus.dicethrow.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1214)
+08-30 11:15:15.801 16898 16898 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2775)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2897)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1598)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.os.Looper.loop() (Looper.java:251)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6572)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+08-30 11:15:15.801 16898 16898 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.SafeBrowsingResponse" on path: DexPathList[[zip file "/data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/base.apk"],nativeLibraryDirectories=[/data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/lib/arm64, /data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/base.apk!/lib/arm64-v8a, /system/lib64, /vendor/lib64]]
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+08-30 11:15:15.801 16898 16898 I zygote64:   at xf com.android.webview.chromium.WebViewChromiumFactoryProvider.a(android.webkit.WebView, android.content.Context) (SourceFile:209)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.webview.chromium.WebViewChromium.init(java.util.Map, boolean) (SourceFile:63)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:651)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context, android.util.AttributeSet) (SystemWebView.java:47)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context) (SystemWebView.java:43)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebViewEngine.<init>(android.content.Context, org.apache.cordova.CordovaPreferences) (SystemWebViewEngine.java:76)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaWebViewImpl.createEngine(android.content.Context, org.apache.cordova.CordovaPreferences) (CordovaWebViewImpl.java:80)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaActivity.makeWebViewEngine() (CordovaActivity.java:206)
+08-30 11:15:15.801 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebView org.apache.cordova.CordovaActivity.makeWebView() (CordovaActivity.java:202)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.init() (CordovaActivity.java:146)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.loadUrl(java.lang.String) (CordovaActivity.java:224)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.ombarus.dicethrow.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1214)
+08-30 11:15:15.801 16898 16898 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2775)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2897)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1598)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.os.Looper.loop() (Looper.java:251)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6572)
+08-30 11:15:15.801 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+08-30 11:15:15.801 16898 16898 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+08-30 11:15:15.801 16898 16898 I zygote64: 
+08-30 11:15:15.802 16898 16898 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<ul>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/SafeBrowsingResponse;
+08-30 11:15:15.802 16898 16898 I zygote64:   at xf com.android.webview.chromium.WebViewChromiumFactoryProvider.a(android.webkit.WebView, android.content.Context) (SourceFile:209)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.webview.chromium.WebViewChromium.init(java.util.Map, boolean) (SourceFile:63)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:651)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context, android.util.AttributeSet) (SystemWebView.java:47)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context) (SystemWebView.java:43)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebViewEngine.<init>(android.content.Context, org.apache.cordova.CordovaPreferences) (SystemWebViewEngine.java:76)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaWebViewImpl.createEngine(android.content.Context, org.apache.cordova.CordovaPreferences) (CordovaWebViewImpl.java:80)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaActivity.makeWebViewEngine() (CordovaActivity.java:206)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebView org.apache.cordova.CordovaActivity.makeWebView() (CordovaActivity.java:202)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.init() (CordovaActivity.java:146)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.loadUrl(java.lang.String) (CordovaActivity.java:224)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.ombarus.dicethrow.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1214)
+08-30 11:15:15.802 16898 16898 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2775)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2897)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1598)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.os.Looper.loop() (Looper.java:251)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6572)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+08-30 11:15:15.802 16898 16898 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.SafeBrowsingResponse" on path: DexPathList[[zip file "/data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/base.apk"],nativeLibraryDirectories=[/data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/lib/arm64, /data/app/com.android.chrome-qAxIIukKGq-x3jlR0iMjuA==/base.apk!/lib/arm64-v8a, /system/lib64, /vendor/lib64]]
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+08-30 11:15:15.802 16898 16898 I zygote64:   at xf com.android.webview.chromium.WebViewChromiumFactoryProvider.a(android.webkit.WebView, android.content.Context) (SourceFile:209)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.webview.chromium.WebViewChromium.init(java.util.Map, boolean) (SourceFile:63)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:651)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context, android.util.AttributeSet) (SystemWebView.java:47)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context) (SystemWebView.java:43)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebViewEngine.<init>(android.content.Context, org.apache.cordova.CordovaPreferences) (SystemWebViewEngine.java:76)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaWebViewImpl.createEngine(android.content.Context, org.apache.cordova.CordovaPreferences) (CordovaWebViewImpl.java:80)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaActivity.makeWebViewEngine() (CordovaActivity.java:206)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebView org.apache.cordova.CordovaActivity.makeWebView() (CordovaActivity.java:202)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.init() (CordovaActivity.java:146)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.CordovaActivity.loadUrl(java.lang.String) (CordovaActivity.java:224)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.ombarus.dicethrow.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:39)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1214)
+08-30 11:15:15.802 16898 16898 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2775)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2897)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1598)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.os.Looper.loop() (Looper.java:251)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6572)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+08-30 11:15:15.802 16898 16898 I zygote64: 
+08-30 11:15:15.802 16898 16898 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<ul>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/SafeBrowsingResponse;
+08-30 11:15:15.802 16898 16898 I zygote64:   at xf com.android.webview.chromium.WebViewChromiumFactoryProvider.a(android.webkit.WebView, android.content.Context) (SourceFile:209)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void com.android.webview.chromium.WebViewChromium.init(java.util.Map, boolean) (SourceFile:63)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:651)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context, android.util.AttributeSet) (SystemWebView.java:47)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebView.<init>(android.content.Context) (SystemWebView.java:43)
+08-30 11:15:15.802 16898 16898 I zygote64:   at void org.apache.cordova.engine.SystemWebViewEngine.<init>(android.content.Context, org.apache.cordova.CordovaPreferences) (SystemWebViewEngine.java:76)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+08-30 11:15:15.802 16898 16898 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaWebViewImpl.createEngine(android.content.Context, org.apache.cordova.CordovaPreferences) (CordovaWebViewImpl.java:80)
+08-30 11:15:15.802 16898 16898 I zygote64:   at org.apache.cordova.CordovaWebViewEngine org.apache.cordova.CordovaActivity.makeWebViewEngine() (CordovaActivity.java:206)
+08-30 11:15:15.905 16898 16898 W Chrome_InProcGp: type=1400 audit(0.0:1408709): avc: denied { search } for name="proc" dev="debugfs" ino=17300 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:qti_debugfs:s0 tclass=dir permissive=0 ppid=771 pcomm="main" pgid=16898 pgcomm="barus.dicethrow"
+08-30 11:15:15.905 16898 16898 D CordovaWebViewImpl: >>> loadUrl(file:///android_asset/www/index.html)
+08-30 11:15:15.912 16898 16946 W cr_media: Requires BLUETOOTH permission
+08-30 11:15:15.914 16898 16964 I Adreno  : QUALCOMM build                   : 3953ab1, Ib515ec08c2
+08-30 11:15:15.914 16898 16964 I Adreno  : Build Date                       : 09/27/17
+08-30 11:15:15.914 16898 16964 I Adreno  : OpenGL ES Shader Compiler Version: EV031.20.00.04
+08-30 11:15:15.914 16898 16964 I Adreno  : Local Branch                     : 
+08-30 11:15:15.914 16898 16964 I Adreno  : Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.UM.6.4.R1.08.00.00.309.032
+08-30 11:15:15.914 16898 16964 I Adreno  : Remote Branch                    : NONE
+08-30 11:15:15.914 16898 16964 I Adreno  : Reconstruct Branch               : NOTHING
+08-30 11:15:15.918 16898 16964 I Adreno  : PFP: 0x005ff087, ME: 0x005ff063
+08-30 11:15:15.918 16898 16898 D CordovaActivity: Started the activity.
+08-30 11:15:15.921 16898 16898 D CordovaActivity: Resumed the activity.
+08-30 11:15:15.926 16898 16966 D OpenGLRenderer: HWUI GL Pipeline
+08-30 11:15:15.935 16898 16898 D CordovaWebViewImpl: onPageDidNavigate(file:///android_asset/www/index.html)
+08-30 11:15:15.957 16898 16964 W VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+08-30 11:15:15.957 16898 16964 W VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+08-30 11:15:15.958 16922 16954 I cr_LibraryLoader: Time to load native libraries: 0 ms (timestamps 6834-6834)
+08-30 11:15:15.958 16922 16954 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+08-30 11:15:15.959 16922 16954 I cr_LibraryLoader: Expected native library version number "68.0.3440.91", actual native library version number "68.0.3440.91"
+08-30 11:15:15.965  1663 16406 I InputDispatcher: Focus entered window: Window{cb5e6f4 u0 com.ombarus.dicethrow/com.ombarus.dicethrow.MainActivity}
+08-30 11:15:15.967 16898 16966 I OpenGLRenderer: Initialized EGL, version 1.4
+08-30 11:15:15.967 16898 16966 D OpenGLRenderer: Swap behavior 2
+08-30 11:15:15.967 16898 16964 W VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+08-30 11:15:15.967 16898 16964 W VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+08-30 11:15:15.970 16898 16964 W VideoCapabilities: Unrecognized profile 2130706433 for video/avc
+08-30 11:15:15.970 16898 16964 W VideoCapabilities: Unrecognized profile 2130706434 for video/avc
+08-30 11:15:15.974 16898 16964 W VideoCapabilities: Unrecognized profile/level 0/3 for video/mpeg2
+08-30 11:15:15.976 16898 16964 W VideoCapabilities: Unrecognized profile/level 0/3 for video/mpeg2
+08-30 11:15:15.994 16898 16964 W VideoCapabilities: Unsupported mime video/mp4v-esdp
+08-30 11:15:15.997 16898 16964 W Utils   : could not parse long range '259-258'
+08-30 11:15:16.009 16898 16964 I VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+08-30 11:15:16.023  1663  1688 I ActivityManager: Displayed com.ombarus.dicethrow/.MainActivity: +514ms
+08-30 11:15:16.025  1663  1688 I Timeline: Timeline: Activity_windows_visible id: ActivityRecord{c3431a0 u0 com.ombarus.dicethrow/.MainActivity t542} time:670856921 diff:524 start:cold| batt:93|2 mw:off|1 mem:1081076|0|75|6|29 cpu:[1900800, 1900800, 1900800, 1900800, 2361600, 2361600, 2361600, 2361600]
+08-30 11:15:16.031 16898 16917 W cr_CrashFileManager: /data/user/0/com.ombarus.dicethrow/cache/WebView/Crash Reports does not exist or is not a directory
+08-30 11:15:16.036  1663  7766 D ActivityTrigger: ActivityTrigger activityStopTrigger 
+08-30 11:15:16.306 16898 16898 D CordovaWebViewImpl: onPageFinished(file:///android_asset/www/index.html)
+08-30 11:15:16.466 16898 16904 I zygote64: Do partial code cache collection, code=29KB, data=27KB
+08-30 11:15:16.467 16898 16904 I zygote64: After code cache collection, code=29KB, data=27KB
+08-30 11:15:16.467 16898 16904 I zygote64: Increasing code cache capacity to 128KB
+08-30 11:15:17.505   939  1021 E ANDR-PERF-OPTSHANDLER: perf_lock_rel: updated /sys/class/scsi_host/host0/../../../clkscale_enable with 1
+08-30 11:15:17.505   939  1021 E ANDR-PERF-OPTSHANDLER:  return value 2
+08-30 11:15:17.656   939  1021 E ANDR-PERF-OPTSHANDLER: Warning: Core control support not present for lock_min_cores on cluster 0 for this target
+08-30 11:15:17.656   939  1021 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [4, 0]
+08-30 11:15:17.847  9462 16292 E WakeLock: CMWakeLock was already released!
+08-30 11:15:17.847  9462 16292 E WakeLock: java.lang.RuntimeException: WakeLock under-locked CMWakeLock
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1502)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at android.os.PowerManager$WakeLock.release(PowerManager.java:1462)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at amvo.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at amvo.c(:com.google.android.gms@12878025@12.8.78 (040408-209461520):3)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at amvo.b(:com.google.android.gms@12878025@12.8.78 (040408-209461520):9)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at dpx.a(:com.google.android.gms@12878025@12.8.78 (040408-209461520):10)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at dpx.handleMessage(:com.google.android.gms@12878025@12.8.78 (040408-209461520):4)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at pmn.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):6)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at pmz.run(:com.google.android.gms@12878025@12.8.78 (040408-209461520):28)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at ptb.run(Unknown Source:7)
+08-30 11:15:17.847  9462 16292 E WakeLock: 	at java.lang.Thread.run(Thread.java:764)
+08-30 11:15:18.300   939  1021 E ANDR-PERF-OPTSHANDLER: Warning: Core control support not present for lock_min_cores on cluster 0 for this target
+08-30 11:15:18.300   939  1021 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [4, 0]
+08-30 11:15:18.459 16898 16904 I zygote64: Do partial code cache collection, code=44KB, data=57KB
+08-30 11:15:18.460 16898 16904 I zygote64: After code cache collection, code=44KB, data=57KB
+08-30 11:15:18.460 16898 16904 I zygote64: Increasing code cache capacity to 256KB
+08-30 11:15:18.460 16898 16904 I zygote64: Compiler allocated 6MB to compile void android.view.ViewRootImpl.performTraversals()
+08-30 11:15:19.014   939  1021 E ANDR-PERF-OPTSHANDLER: Warning: Core control support not present for lock_min_cores on cluster 0 for this target
+08-30 11:15:19.014   939  1021 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [4, 0]
+08-30 11:15:20.003  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:20.003  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:20.003  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:20.005  1204  1204 D pr      : onReceive
+08-30 11:15:20.005  1204  1204 D pr      : UpdateViews
+08-30 11:15:20.030  1204  1204 W pr      : Widgets list is empty
+08-30 11:15:22.862   737   737 I QNS     : QNS: soc=93, v=4278, i=284, t=345
+08-30 11:15:22.863   737   737 I QNS     : QNS: requested charging params: current: 500, voltage: 4380
+08-30 11:15:24.161  9754  9774 E memtrack: Couldn't load memtrack module
+08-30 11:15:24.162  9754  9774 W android.os.Debug: failed to get memory consumption info: -1
+08-30 11:15:25.009  1663  1681 D CompatibilityInfo: mCompatibilityFlags - 0
+08-30 11:15:25.010  1663  1681 D CompatibilityInfo: applicationDensity - 480
+08-30 11:15:25.010  1663  1681 D CompatibilityInfo: applicationScale - 1.0
+08-30 11:15:25.012  1204  1204 D pr      : onReceive
+08-30 11:15:25.012  1204  1204 D pr      : UpdateViews
+08-30 11:15:25.060  1204  1204 W pr      : Widgets list is empty
+08-30 11:15:25.233  9925  9952 E memtrack: Couldn't load memtrack module
+08-30 11:15:25.234  9925  9952 W android.os.Debug: failed to get memory consumption info: -1
+08-30 11:15:26.251   935   935 D illumination-service: 'backlight': Color ff262626, BrMode 0, OnMS 0, OffMS 0, Mode 0
+08-30 11:15:26.284   935   935 D illumination-service: 'backlight': Color ff272727, BrMode 0, OnMS 0, OffMS 0, Mode 0
