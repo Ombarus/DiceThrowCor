@@ -213,6 +213,10 @@ function GetCrit() {
 	return totalcrit;
 }
 
+function MersenneTwister() {
+	
+}
+
 function GetMiss() {
 	var i = 0;
 	var totalmiss = 0;
