@@ -1,12 +1,8 @@
 TODO :
 
-- Implement mersene twister in javascript
-- Roll more than one dice per "session"
 - Remember last roll's settings
 	- options
 	- threshold
-- Options page title should show the throw ("2d6's options")
-- Final roll page should have a usefull title ("2d6 + 3 reroll" ?)
 - Side menu
 	- history
 	- settings
@@ -20,4 +16,15 @@ TODO :
 	- about
 	- manage preset
 - presets
-- add as preset shortcut in result page
+- "add as preset" shortcut in result page
+
+
+
+DONE :
+- Options page title should show the throw ("2d6's options")
+- Final roll page should have a usefull title ("2d6 + 3 reroll" ?)
+- show crit miss as % in results
+- flush history once in a while
+- fix history save/load of save_data
+- Roll more than one dice per "session"
+- Implement mersene twister in javascript
