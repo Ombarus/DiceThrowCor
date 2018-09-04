@@ -17,10 +17,28 @@ TODO :
 	- manage preset
 - presets
 - "add as preset" shortcut in result page
+- wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
+	- help in the about ?
+	- Tooltips ? (does framework7 has tooltip ?)
+	- question mark in the corner of the title bar for each window ?
+	
+:::
+Things to document :
+	- criticals are calculated only from "true" 1s or (dice)s (without the bonus)
+	- rolls can never be below 1
+	- reroll max will sum the final total (a la shadowrun)
+	- reroll 1s will only reroll once (so it can still be 1)
 
 
 
 DONE :
+- BUG : sometimes the roll doesn't happen and I get left-over data from last roll or "undefined"
+	! the "click" event sometimes returned the div and sometimes the icon as "target". Solution, don't use IDs, use class and put them everywhere.
+- Rolls with minus should be clamped to 1 (and do not count for critical)
+- Update +x to each roll as we scroll the bar in options.
+
+
+
 - Options page title should show the throw ("2d6's options")
 - Final roll page should have a usefull title ("2d6 + 3 reroll" ?)
 - show crit miss as % in results

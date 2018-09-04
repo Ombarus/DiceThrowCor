@@ -178,7 +178,7 @@
 
 .dice-icon {
 	background-size:100% 100%;
-	background-image:url("../img/D20-nofill.svg");
+	background-image:url("");
 	background-repeat:no-repeat;
 	vertical-align:middle;
 	text-align:center;
@@ -188,4 +188,36 @@
 	margin-left:0.5em;
 	margin-top:0.5em;
 	float:left;
+}
+
+.d2-icon {
+	background-image:url("../img/D2-nofill.svg");
+}
+
+.d4-icon {
+	background-image:url("../img/D4-nofill.svg");
+}
+
+.d6-icon {
+	background-image:url("../img/D6-nofill.svg");
+}
+
+.d8-icon {
+	background-image:url("../img/D8-nofill.svg");
+}
+
+.d10-icon {
+	background-image:url("../img/D10-nofill.svg");
+}
+
+.d12-icon {
+	background-image:url("../img/D12-nofill.svg");
+}
+
+.d20-icon {
+	background-image:url("../img/D20-nofill.svg");
+}
+
+.d100-icon {
+	background-image:url("../img/D100-nofill.svg");
 }

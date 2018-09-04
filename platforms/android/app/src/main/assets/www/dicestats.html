@@ -7,7 +7,7 @@
 					<i class="icon material-icons md-only">home</i>
 				</a>
 			</div>
-			<div class="title">Dice Results</div>
+			<div id="title-results" class="title">Dice Results</div>
 		</div>
 	</div>
   
@@ -29,7 +29,7 @@
 							<div class="item-media"><i class="icon f7-icons">data_fill</i></div>
 							<div class="item-inner">
 								<div class="item-title">Total Dices</div>
-								<div class="item-after">9</div>
+								<div id="stats-count" class="item-after">9</div>
 							</div>
 						</div>
 					</li>
@@ -37,8 +37,8 @@
 						<div class="item-content">
 							<div class="item-media"><i class="icon f7-icons">&#8721;</i></div>
 							<div class="item-inner">
-								<div class="item-title">Sum</div>
-								<div class="item-after">32</div>
+								<div id="stats-sum-title" class="item-title">Sum</div>
+								<div id="stats-sum" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -47,7 +47,7 @@
 							<div class="item-media"><i class="icon f7-icons">x&#772;</i></div>
 							<div class="item-inner">
 								<div class="item-title">Average</div>
-								<div class="item-after">32</div>
+								<div id="stats-avg" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -56,7 +56,7 @@
 							<div class="item-media"><i class="icon f7-icons">arrow_up</i></div>
 							<div class="item-inner">
 								<div class="item-title">Highest</div>
-								<div class="item-after">32</div>
+								<div id="stats-high" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -65,7 +65,7 @@
 							<div class="item-media"><i class="icon f7-icons">arrow_down</i></div>
 							<div class="item-inner">
 								<div class="item-title">Lowest</div>
-								<div class="item-after">32</div>
+								<div id="stats-low" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -74,7 +74,7 @@
 							<div class="item-media"><i class="icon f7-icons">star_fill</i></div>
 							<div class="item-inner">
 								<div class="item-title">Critical Hit</div>
-								<div class="item-after">32</div>
+								<div id="stats-crit" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -83,7 +83,7 @@
 							<div class="item-media"><i class="icon f7-icons">star</i></div>
 							<div class="item-inner">
 								<div class="item-title">Critical Miss</div>
-								<div class="item-after">32</div>
+								<div id="stats-miss" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
@@ -91,15 +91,15 @@
 						<div class="item-content">
 							<div class="item-media"><i class="icon material-icons md-only">publish</i></div>
 							<div class="item-inner">
-								<div class="item-title">Above Threshold</div>
-								<div class="item-after">32</div>
+								<div id="stats-threshold-val" class="item-title">Above Threshold</div>
+								<div id="stats-threshold-count" class="item-after">32</div>
 							</div>
 						</div>
 					</li>
 					<li style="margin-left:10%;margin-right:10%">
 						<div class="item-cell flex-shrink-3">
 							<div id="threshold-slider" class="range-slider range-slider-init" data-label="true">
-								<input type="range" min="1" max="10" step="1" value="1">
+								<input id="stats-threshold-range" type="range" min="1" max="10" step="1" value="1">
 							</div>
 						</div>
 					</li>
@@ -107,7 +107,7 @@
 			</div>
 		</div>
 		<div id="tab-2" class="page-content tab">
-			<div style="margin-left:10%;margin-right:10%;margin-top:10%">
+			<div id="dice-list" style="margin-left:10%;margin-right:10%;margin-top:10%">
 				<div class="dice-icon">1</div>
 				<div class="dice-icon">22</div>
 				<div class="dice-icon">55</div>

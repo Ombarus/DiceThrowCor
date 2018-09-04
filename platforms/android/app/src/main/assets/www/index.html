@@ -54,33 +54,33 @@
 				<div class="page-content">
 					<table class="dice-table md-only">
 						<tr>
-							<td class="table-col" id="D2"><a href="/dicecount/" class="icon link special color-white">2</a></td>
-							<td class="table-col" id="D4"><a href="/dicecount/" class="icon link special color-white">4</a></td>
-							<td class="table-col" id="D6"><a href="/dicecount/" class="icon link special color-white">6</a></td>
+							<td class="table-col" id="D2"><a href="/dicecount/" class="icon link special color-white dice">2</a></td>
+							<td class="table-col" id="D4"><a href="/dicecount/" class="icon link special color-white dice">4</a></td>
+							<td class="table-col" id="D6"><a href="/dicecount/" class="icon link special color-white dice">6</a></td>
 						</tr><tr>
-							<td class="table-col" id="D8"><a href="/dicecount/" class="icon link special color-white">8</a></td>
-							<td class="table-col" id="D10"><a href="/dicecount/" class="icon link special color-white">10</a></td>
-							<td class="table-col" id="D12"><a href="/dicecount/" class="icon link special color-white">12</a></td>
+							<td class="table-col" id="D8"><a href="/dicecount/" class="icon link special color-white dice">8</a></td>
+							<td class="table-col" id="D10"><a href="/dicecount/" class="icon link special color-white dice">10</a></td>
+							<td class="table-col" id="D12"><a href="/dicecount/" class="icon link special color-white dice">12</a></td>
 						</tr><tr>
-							<td class="table-col" id="D20"><a href="/dicecount/" class="icon link special color-white">20</a></td>
+							<td class="table-col" id="D20"><a href="/dicecount/" class="icon link special color-white dice">20</a></td>
 							<td class="table-col"><a class="icon special">&nbsp;</a></td>
-							<td class="table-col" id="D100"><a href="/dicecount/" class="icon link special color-white">100</a></td>
+							<td class="table-col" id="D100"><a href="/dicecount/" class="icon link special color-white dice">100</a></td>
 						</tr>
 					</table>
 					
 					<table class="dice-table ios-only">
 						<tr>
-							<td class="table-col" id="D2ios"><a href="/dicecount/" class="icon link special color-white">2</a></td>
-							<td class="table-col" id="D4ios"><a href="/dicecount/" class="icon link special color-white">4</a></td>
-							<td class="table-col" id="D6ios"><a href="/dicecount/" class="icon link special color-white">6</a></td>
+							<td class="table-col" id="D2ios"><a href="/dicecount/" class="icon link special color-white dice">2</a></td>
+							<td class="table-col" id="D4ios"><a href="/dicecount/" class="icon link special color-white dice">4</a></td>
+							<td class="table-col" id="D6ios"><a href="/dicecount/" class="icon link special color-white dice">6</a></td>
 						</tr><tr>
-							<td class="table-col" id="D8ios"><a href="/dicecount/" class="icon link special color-white">8</a></td>
-							<td class="table-col" id="D10ios"><a href="/dicecount/" class="icon link special color-white">10</a></td>
-							<td class="table-col" id="D12ios"><a href="/dicecount/" class="icon link special color-white">12</a></td>
+							<td class="table-col" id="D8ios"><a href="/dicecount/" class="icon link special color-white dice">8</a></td>
+							<td class="table-col" id="D10ios"><a href="/dicecount/" class="icon link special color-white dice">10</a></td>
+							<td class="table-col" id="D12ios"><a href="/dicecount/" class="icon link special color-white dice">12</a></td>
 						</tr><tr>
-							<td class="table-col" id="D20ios"><a href="/dicecount/" class="icon link special color-white">20</a></td>
+							<td class="table-col" id="D20ios"><a href="/dicecount/" class="icon link special color-white dice">20</a></td>
 							<td class="table-col"><a class="icon special">&nbsp;</a></td>
-							<td class="table-col" id="D100ios"><a href="/dicecount/" class="icon link special color-white">100</a></td>
+							<td class="table-col" id="D100ios"><a href="/dicecount/" class="icon link special color-white dice">100</a></td>
 						</tr>
 					</table>
 				
@@ -90,7 +90,9 @@
 							<li class="item-content item-input">
 								<div class="item-inner">
 									<div class="item-input-wrap">
-										<input type="text" placeholder="Custom then hit enter">
+										<form id="dice-side" action="#" method="GET" class="form-ajax-submit">
+											<input name="dice-side-input" type="number" placeholder="Custom then hit enter" validate>
+										</form>
 										<span class="input-clear-button"></span>
 									</div>
 								</div>
@@ -109,6 +111,7 @@
 	<!-- Path to Framework7 Library JS-->
 	<script type="text/javascript" src="engine/js/framework7.min.js"></script>
 	<!-- Path to your app js-->
+	<script type="text/javascript" src="js/mersenne-twister.js"></script>
 	<script type="text/javascript" src="js/routes.js"></script>
 	<script type="text/javascript" src="js/my-app.js"></script>
 </body>

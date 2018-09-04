@@ -67,7 +67,7 @@ function ProcessClick(ev) {
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.count = val;
 		console.log("Rolling " + val + "D" + save_data.current_roll[save_data.current_roll.length-1].roll_data.dice);
 	}
-	if (btn.attr('id') == "doroll")
+	if (btn.hasClass("doroll"))
 	{
 		var rerollmax = $$("input[name='dice-reroll-max']").is(':checked');
 		var rerollmin = $$("input[name='dice-reroll-min']").is(':checked');
@@ -86,7 +86,7 @@ function ProcessClick(ev) {
 		app.form.storeFormData("save.json", save_data);
 		console.log(save_data);
 	}
-	if (btn.attr('id') == "addroll")
+	if (btn.hasClass("addroll"))
 	{
 		var rerollmax = $$("input[name='dice-reroll-max']").is(':checked');
 		var rerollmin = $$("input[name='dice-reroll-min']").is(':checked');
@@ -151,7 +151,7 @@ function GetSum() {
 		var j = 0;
 		for (j = 0; j < inner.results.length; j++)
 		{
-			total += inner.results[j];
+			total += Math.max(1, inner.results[j]);
 		}
 		total += inner.roll_data.bonus_roll;
 	}
@@ -180,7 +180,7 @@ function GetAvg() {
 		var j = 0;
 		for (j = 0; j < inner.results.length; j++)
 		{
-			sum += inner.results[j];
+			sum += Math.max(1, inner.results[j]);
 		}
 	}
 	return sum / count;
@@ -270,7 +270,7 @@ function GetThresholdCount(threshold) {
 		var j = 0;
 		for (j = 0; j < inner.results.length; j++)
 		{
-			if (inner.results[j] >= threshold)
+			if (Math.max(1, inner.results[j]) >= threshold)
 			{
 				count += 1;
 			}
@@ -379,41 +379,42 @@ function UpdateDiceList() {
 		for (j = 0; j < inner.results.length; j++)
 		{
 			var dice = inner.roll_data.dice;
+			var result = Math.max(1, inner.results[j]);
 			if (dice == 2)
 			{
-				content += "<div class='dice-icon d2-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d2-icon'>" + result + "</div>"
 			}
 			else if (dice == 4)
 			{
-				content += "<div class='dice-icon d4-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d4-icon'>" + result + "</div>"
 			}
 			else if (dice == 6)
 			{
-				content += "<div class='dice-icon d6-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d6-icon'>" + result + "</div>"
 			}
 			else if (dice == 8)
 			{
-				content += "<div class='dice-icon d8-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d8-icon'>" + result + "</div>"
 			}
 			else if (dice == 10)
 			{
-				content += "<div class='dice-icon d10-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d10-icon'>" + result + "</div>"
 			}
 			else if (dice == 12)
 			{
-				content += "<div class='dice-icon d12-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d12-icon'>" + result + "</div>"
 			}
 			else if (dice == 20)
 			{
-				content += "<div class='dice-icon d20-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d20-icon'>" + result + "</div>"
 			}
 			else if (dice == 100)
 			{
-				content += "<div class='dice-icon d100-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon d100-icon'>" + result + "</div>"
 			}
 			else
 			{
-				content += "<div class='dice-icon'>" + inner.results[j] + "</div>"
+				content += "<div class='dice-icon'>" + result + "</div>"
 			}
 		}
 	}
@@ -437,6 +438,7 @@ $$(document).on('page:init', function (e) {
 	
 	//app.form.storeFormData("save.json", initial_data);
 	//var data = app.form.getFormData("save.json");
+	console.log("page:init");
 	
     $$('#threshold-slider').on('touchstart', function(event) {
 		app.swiper.get($$('.tabs-swipeable-wrap')).allowTouchMove = false;
@@ -447,6 +449,22 @@ $$(document).on('page:init', function (e) {
 	$$('#threshold-slider').on('range:change', function(event, range) {
 		$$("#stats-threshold-val").text("Above Threshold of " + range.value);
 		$$("#stats-threshold-count").text(GetThresholdCount(range.value));
+	});
+	$$('#dice-bonus-slider').on('range:change', function(event, range) {
+		var textval = "";
+		if (parseInt(range.value) >= 0) {
+			textval += "+";
+		}
+		textval += range.value + " To Each Roll";
+		$$("#dice-bonus-label").text(textval);
+	});
+	$$('#roll-bonus-slider').on('range:change', function(event, range) {
+		var textval = "";
+		if (parseInt(range.value) >= 0) {
+			textval += "+";
+		}
+		textval += range.value + " To Final Sum";
+		$$("#roll-bonus-label").text(textval);
 	});
 	$$("#dice-count").on("formajax:success", function() {
 		var val = $$("input[name='dice-count-input']").val();
@@ -473,6 +491,7 @@ $$(document).on('page:init', function (e) {
 		}
 	});
 	$$("a").on("click", function(ev) {
+		console.log("a click");
 		ProcessClick(ev);
 	});
 	
@@ -483,12 +502,12 @@ $$(document).on('page:init', function (e) {
 	if ($$("#stats-count").length != 0)
 	{
 		$$("#stats-count").text(GetCount());
-		$$("#stats-sum").text(GetSum());
+		$$("#stats-sum").text(Math.max(1, GetSum()));
 		UpdateSumText();
 		$$("#stats-avg").text(GetAvg().toFixed(2));
-		var max = GetMax();
+		var max = Math.max(1, GetMax());
 		$$("#stats-high").text(max);
-		$$("#stats-low").text(GetMin());
+		$$("#stats-low").text(Math.max(1, GetMin()));
 		$$("#stats-crit").text(GetCrit());
 		$$("#stats-miss").text(GetMiss());
 		$$("#stats-threshold-val").text("Above Threshold of " + $$("#stats-threshold-range")[0].value);
