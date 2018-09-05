@@ -69,6 +69,13 @@
 
 .doroll {}
 .addroll {}
+.showhistory {}
+.managepreset {}
+
+.panel-header {
+	margin:0px;
+	padding:0px;
+}
 
 .dice-table {
 	width: 80%; 

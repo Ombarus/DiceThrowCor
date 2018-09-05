@@ -435,11 +435,36 @@ else
 }
 
 $$(document).on('page:init', function (e) {
+	$$('.open-prompt').on('click', function () {
+		app.dialog.prompt('', 'Preset Name', function (name) {
+			save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
+		});
+	});
 	
-	//app.form.storeFormData("save.json", initial_data);
-	//var data = app.form.getFormData("save.json");
-	console.log("page:init");
-	
+	if ($$("input[name='dice-reroll-max']").length != 0) {
+		var input = $$("input[name='dice-reroll-max']");
+		if (save_data.history.length > 0) {
+			 var last_roll = save_data.history[save_data.history.length-1];
+			 if (last_roll[last_roll.length-1].roll_data.max == true) {
+				 input.attr('checked',true);
+			 }
+			 else {
+				 input.removeAttr('checked');
+			 }
+		}
+	}
+	if ($$("input[name='dice-reroll-min']").length != 0) {
+		var input = $$("input[name='dice-reroll-min']");
+		if (save_data.history.length > 0) {
+			 var last_roll = save_data.history[save_data.history.length-1];
+			 if (last_roll[last_roll.length-1].roll_data.min == true) {
+				 input.attr('checked',true);
+			 }
+			 else {
+				 input.removeAttr('checked');
+			 }
+		}
+	}
     $$('#threshold-slider').on('touchstart', function(event) {
 		app.swiper.get($$('.tabs-swipeable-wrap')).allowTouchMove = false;
 	});
@@ -491,7 +516,6 @@ $$(document).on('page:init', function (e) {
 		}
 	});
 	$$("a").on("click", function(ev) {
-		console.log("a click");
 		ProcessClick(ev);
 	});
 	
@@ -510,6 +534,8 @@ $$(document).on('page:init', function (e) {
 		$$("#stats-low").text(Math.max(1, GetMin()));
 		$$("#stats-crit").text(GetCrit());
 		$$("#stats-miss").text(GetMiss());
+		app.range.setValue($$("#stats-threshold-range"), (parseInt(max/2)));
+		$$("#stats-threshold-range")[0].value = parseInt(max/2);
 		$$("#stats-threshold-val").text("Above Threshold of " + $$("#stats-threshold-range")[0].value);
 		$$("#stats-threshold-range")[0].max = max;
 		$$("#stats-threshold-count").text(GetThresholdCount($$("#stats-threshold-range")[0].value));
