@@ -8,20 +8,36 @@
 				</a>
 			</div>
 			<div id="title-options" class="title">Options</div>
+			<div class="right">
+				<a href="#" class="link popover-open" data-popover=".popover-options">
+					<span class="ios-only">More</span>
+					<i class="icon material-icons md-only">more_vert</i>
+				</a>
+			</div>
 		</div>
 	</div>
   
   
 	<div class="toolbar">
 		<div class="toolbar-inner">
-			<a href="/" class="link icon-only">
-				<i id="addroll" class="icon f7-icons ios-only">add</i>
-				<i id="addroll" class="icon material-icons md-only">add</i>
+			<a href="/" class="link icon-only addroll">
+				<i class="icon f7-icons ios-only addroll">add</i>
+				<i class="icon material-icons md-only addroll">add</i>
 			</a>
-			<a href="/dicestats/" class="link icon-only">
-				<i id="doroll" class="icon f7-icons ios-only">check</i>
-				<i id="doroll" class="icon material-icons md-only">done</i>
+			<a href="/dicestats/" class="link icon-only doroll">
+				<i class="icon f7-icons ios-only doroll">check</i>
+				<i class="icon material-icons md-only doroll">done</i>
 			</a>
+		</div>
+	</div>
+	
+	<div class="popover popover-options">
+		<div class="popover-inner">
+			<div class="list">
+				<ul>
+					<li><a class="list-button item-link popover-close" href="/">Reset Roll</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
   
@@ -57,9 +73,9 @@
 					</li>
 					<li class="item-content item-input">
 						<div class="item-inner">
-							<div class="item-title item-label">+0 To Each Roll</div>
+							<div id="dice-bonus-label" class="item-title item-label">+0 To Each Roll</div>
 							<div class="item-input-wrap">
-								<div class="range-slider range-slider-init" data-label="true">
+								<div id="dice-bonus-slider" class="range-slider range-slider-init" data-label="true">
 									<input name="dice-bonus" type="range" value="0" min="-10" max="10" step="1">
 								</div>
 							</div>
@@ -67,9 +83,9 @@
 					</li>
 					<li class="item-content item-input">
 						<div class="item-inner">
-							<div class="item-title item-label">+0 To Final Sum</div>
+							<div id="roll-bonus-label" class="item-title item-label">+0 To Final Sum</div>
 							<div class="item-input-wrap">
-								<div class="range-slider range-slider-init" data-label="true">
+								<div id="roll-bonus-slider" class="range-slider range-slider-init" data-label="true">
 									<input name="roll-bonus" type="range" value="0" min="-10" max="10" step="1">
 								</div>
 							</div>

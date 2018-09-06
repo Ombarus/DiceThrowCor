@@ -29,6 +29,18 @@ var routes = [
 	  url: './dicestats.html',
 	  name: 'dicestats'
   },
+  // Preset Management page
+  {
+	  path: '/presetmanage/',
+	  url: './presetmanage.html',
+	  name: 'presetmanage'
+  },
+  // History Management (see, clear)
+  {
+	  path: '/historymanage/',
+	  url: './historymanage.html',
+	  name: 'historymanage'
+  },
 
   // Default route (404 page). MUST BE THE LAST
   {

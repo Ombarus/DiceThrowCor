@@ -50,9 +50,6 @@ $$("#dice-side").on("formajax:success", function() {
 		console.log("error, NAN");
 	}
 });
-$$("a").on("click", function(ev) {
-	ProcessClick(ev);
-});
 
 function ProcessClick(ev) {
 	var btn = $$(ev.target);
@@ -79,12 +76,7 @@ function ProcessClick(ev) {
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_dice = parseInt(dicebonus);
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_roll = parseInt(rollbonus);
 		
-		for (var i = 0; i < save_data.current_roll.length; i++) {
-			save_data.current_roll[i].results = Roll(save_data.current_roll[i].roll_data);	
-		}
-		AddHistory(save_data.current_roll);
-		app.form.storeFormData("save.json", save_data);
-		console.log(save_data);
+		DoRollFromData();
 	}
 	if (btn.hasClass("addroll"))
 	{
@@ -102,6 +94,27 @@ function ProcessClick(ev) {
 		app.form.storeFormData("save.json", save_data);
 		console.log(save_data);
 	}
+	if (btn.hasClass("roll-preset"))
+	{
+		var presetname = btn.text();
+		var presetdata = null;
+		for (var i = 0; i < save_data.presets.length; i++)
+		{
+			if (save_data.presets[i].name == presetname)
+			{
+				presetdata = save_data.presets[i].roll_data;
+				break;
+			}
+		}
+		if (presetdata != null) {
+			save_data.current_roll = JSON.parse(JSON.stringify(presetdata));
+			DoRollFromData();
+			app.router.navigate("/dicestats/");
+		}
+		else {
+			console.log("could not find preset named " + presetname);
+		}
+	}
 }
 
 function AddHistory(data) {
@@ -110,6 +123,15 @@ function AddHistory(data) {
 	if (save_data.history.length > max_history) {
 		save_data.history.splice(0, save_data.history.length-max_history);
 	}
+}
+
+function DoRollFromData() {
+	for (var i = 0; i < save_data.current_roll.length; i++) {
+		save_data.current_roll[i].results = Roll(save_data.current_roll[i].roll_data);	
+	}
+	AddHistory(save_data.current_roll);
+	app.form.storeFormData("save.json", save_data);
+	console.log(save_data);
 }
 
 function Roll(rolldata) {
@@ -419,10 +441,10 @@ function UpdateDiceList() {
 		}
 	}
 	
-	$$("#dice-list").append(content);
+	$$("#dice-list").append(content); // text(content) will escape html tags, use append()
 }
 
-var initial_data = JSON.parse('{"version":1, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[]}');
+var initial_data = JSON.parse('{"version":2, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[]}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -434,11 +456,100 @@ else
 	save_data.current_roll = initial_data.current_roll;
 }
 
+
+if ($$("#preset-list").length != 0) {
+	UpdatePresetList();
+}
+if ($$("#preset-sortable-list").length != 0) {
+	UpdateSortablePresetList();
+}
+
+function UpdatePresetList() {
+	var content = "";
+	$$("#preset-list").text(content);
+	for (var i = 0; i < save_data.presets.length; i++)
+	{
+		var presetname = save_data.presets[i].name;
+		content += '<li>' +
+		'	<a href="#" class="item-link item-content roll-preset">' +
+		'		<div class="item-inner roll-preset">' +
+		'			<div class="item-title roll-preset">' + presetname + '</div>' +
+		'		</div>' +
+		'	</a>' +
+		'</li>';
+	}
+	$$("#preset-list").append(content); // text(content) will escape html tags, use append()
+}
+$$("a").on("click", function(ev) {
+	ProcessClick(ev);
+});
+
+function UpdateSortablePresetList() {
+	var content = "";
+	$$("#preset-sortable-list").text(content);
+	for (var i = 0; i < save_data.presets.length; i++)
+	{
+		var presetname = save_data.presets[i].name;
+		content += '<li>' +
+		'	<div class="item-content">' +
+		'		<a href="#" class="item-media open-confirm">' +
+		'			<i class="icon f7-icons color-red ios-only">close_round_fill</i>' +
+		'			<i class="icon material-icons color-red md-only">remove_circle</i>' +
+		'		</a>' +
+		'		<div class="item-inner">' +
+		'			<div class="item-title">' + presetname + '</div>' +
+		'		</div>' +
+		'	</div>' +
+		'	<div class="sortable-handler"></div>' +
+		'</li>';
+	}
+	$$("#preset-sortable-list").append(content); // text(content) will escape html tags, use append()
+}
+
+
 $$(document).on('page:init', function (e) {
 	$$('.open-prompt').on('click', function () {
 		app.dialog.prompt('', 'Preset Name', function (name) {
 			save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
+			app.form.storeFormData("save.json", save_data);
 		});
+	});
+	
+	if ($$("#preset-list").length != 0) {
+		UpdatePresetList();
+	}
+	if ($$("#preset-sortable-list").length != 0) {
+		UpdateSortablePresetList();
+	}
+	
+	$$('.open-confirm').on('click', function (e) {
+		var presetname = $$(e.target).parents(".item-content").find(".item-inner").text();
+		app.dialog.confirm(presetname, 'Delete Preset ?', function (name) {
+			for (var i = 0; i < save_data.presets.length; i++) {
+				if (save_data.presets[i].name == presetname) {
+					save_data.presets.splice(i, 1);
+					break; // Carefull not to continue to loop here !
+				}
+			}
+			app.form.storeFormData("save.json", save_data);
+			UpdateSortablePresetList();
+			// this list might stay loaded because of Ajax magic so update it too if it's there.
+			if ($$("#preset-list").length != 0) {
+				UpdatePresetList();
+			}
+		});
+	});
+	$$("#preset-sortable-list").on("sortable:sort", function(ev) {
+		var ifrom = ev.detail.from;
+		var ito = ev.detail.to;
+		console.log("moving preset " + ifrom + " to preset " + ito);
+		var tmp = save_data.presets[ifrom];
+		save_data.presets[ifrom] = save_data.presets[ito];
+		save_data.presets[ito] = tmp;
+		app.form.storeFormData("save.json", save_data);
+		if ($$("#preset-list").length != 0) {
+			UpdatePresetList();
+		}
 	});
 	
 	if ($$("input[name='dice-reroll-max']").length != 0) {

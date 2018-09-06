@@ -1,8 +1,11 @@
 TODO :
 
-- "add as preset" shortcut in result page
+- BUG: sometimes the side panels stop responding on the home page. Not sure of repro-steps yet
+- avoid duplicate name in presets
+- save preset should suggest name (same as the results page's title)
 - exit app button ?
 - history page
+	- clear history button
 - settings page
 	- (dice count first or dice type first ?)
 	- (clear history)
@@ -12,8 +15,6 @@ TODO :
 		- remember roll_bonus
 		- remember dice_bonus
 - real about page
-- manage preset page
-- do roll from presets
 - translation ?
 - wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
 	- help in the about ?
@@ -30,6 +31,14 @@ Things to document :
 
 
 DONE :
+- "add as preset" shortcut in result page
+- manage preset page
+- do roll from presets
+
+
+
+
+
 - BUG: Clicking on more button adds a new result roll
 - Side menu
 - Remember last roll's settings 

@@ -71,6 +71,7 @@
 .addroll {}
 .showhistory {}
 .managepreset {}
+.preset-list {}
 
 .panel-header {
 	margin:0px;
@@ -81,7 +82,7 @@
 	width: 80%; 
     margin-left: 10%; 
     margin-right: 10%;
-	margin-top:10%;
+	margin-top:0;
 	border-spacing: 0.5cm;
 }
 .count-table {
