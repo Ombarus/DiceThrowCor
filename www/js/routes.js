@@ -42,6 +42,7 @@ var routes = [
 	  name: 'historymanage'
   },
 
+
   // Default route (404 page). MUST BE THE LAST
   {
     path: '(.*)',

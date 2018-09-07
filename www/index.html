@@ -19,10 +19,85 @@
 <body>
 	<!-- App root element -->
 	<div id="app">
+	
 		<!-- Statusbar overlay -->
 		<div class="statusbar"></div>
+		
+		<!-- 
+			tried to put this in ".page" but when I navigate back to "/" the panel
+			stay in the "old" page and does not reload. If I go "back" using special
+			links it work but not when I navigate. By keeping the panel outside the ".page"
+			it seems to work
+		-->
+		<div class="panel panel-left panel-cover">
+			<div class="bg-color-blue text-color-white panel-header">
+				<img src="img/dicesw.png" style="width:100%;height:100%;"/>
+			</div>
+			<div class="list no-hairlines">
+				<ul>
+					<li>
+						<a href="/historymanage/" class="item-link item-content panel-close">
+							<div class="item-media">
+								<i class="icon f7-icons ios-only">time</i>
+								<i class="icon material-icons md-only">history</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Roll History</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/presetmanage/" class="item-link item-content panel-close">
+							<div class="item-media">
+								<i class="icon f7-icons ios-only">bookmark</i>
+								<i class="icon material-icons md-only">bookmark</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Manage Presets</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content panel-close">
+							<div class="item-media">
+								<i class="icon f7-icons ios-only">gear</i>
+								<i class="icon material-icons md-only">settings</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Settings</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/about/" class="item-link item-content panel-close">
+							<div class="item-media">
+								<i class="icon f7-icons ios-only">info</i>
+								<i class="icon material-icons md-only">info</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">About</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div class="item-content"></div>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content panel-close">
+							<div class="item-media">
+								<i class="icon f7-icons ios-only">logout</i>
+								<i class="icon material-icons md-only">exit_to_app</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">Exit</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-		<!-- Your main view, should have "view-main" class -->
+			<!-- Your main view, should have "view-main" class -->
 			<div class="view view-main">
 				<!-- Initial Page, "data-name" contains page name -->
 				<div data-name="home" class="page">
@@ -50,128 +125,54 @@
 				</div>
 				-->
 				
-				<div class="panel panel-left panel-cover">
-					<div class="bg-color-blue text-color-white panel-header">
-					<img src="img/dices.png" style="width:100%;height:100%;"/>
-					</div>
-					<div class="list no-hairlines">
-						<ul>
-							<li>
-								<a href="/historymanage/" class="item-link item-content">
-									<div class="item-media">
-										<i class="icon f7-icons ios-only">time</i>
-										<i class="icon material-icons md-only">history</i>
-									</div>
-									<div class="item-inner">
-										<div class="item-title">Roll History</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="/presetmanage/" class="item-link item-content">
-									<div class="item-media">
-										<i class="icon f7-icons ios-only">bookmark</i>
-										<i class="icon material-icons md-only">bookmark</i>
-									</div>
-									<div class="item-inner">
-										<div class="item-title">Manage Presets</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="item-link item-content">
-									<div class="item-media">
-										<i class="icon f7-icons ios-only">gear</i>
-										<i class="icon material-icons md-only">settings</i>
-									</div>
-									<div class="item-inner">
-										<div class="item-title">Settings</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="/about/" class="item-link item-content">
-									<div class="item-media">
-										<i class="icon f7-icons ios-only">info</i>
-										<i class="icon material-icons md-only">info</i>
-									</div>
-									<div class="item-inner">
-										<div class="item-title">About</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<div class="item-content"></div>
-							</li>
-							<li>
-								<a href="#" class="item-link item-content">
-									<div class="item-media">
-										<i class="icon f7-icons ios-only">logout</i>
-										<i class="icon material-icons md-only">exit_to_app</i>
-									</div>
-									<div class="item-inner">
-										<div class="item-title">Exit</div>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
 
 				<!-- Scrollable page content -->
 				<div class="page-content">
 				
-				
-				
-				
-				
-				<div class="list accordion-list inset">				
-					<div class="accordion-item">
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">Presets</div>
-							</div>
-						</a>
-						<div class="accordion-item-content">
-							<div class="list">
-								<ul id="preset-list">
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
-												<div class="item-title">3D6 reroll 6</div>
+					<div class="list accordion-list inset">				
+						<div class="accordion-item">
+							<a href="#" class="item-link item-content">
+								<div class="item-inner">
+									<div class="item-title">Presets</div>
+								</div>
+							</a>
+							<div class="accordion-item-content">
+								<div class="list">
+									<ul id="preset-list">
+										<li>
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">3D6 reroll 6</div>
+												</div>
 											</div>
-										</div>
-									</li>
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
-												<div class="item-title">Shadowrun spellcasting</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">Shadowrun spellcasting</div>
+												</div>
 											</div>
-										</div>
-									</li>
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
-												<div class="item-title">2-handed sword damage</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">2-handed sword damage</div>
+												</div>
 											</div>
-										</div>
-									</li>
-									<li>
-										<div class="item-content">
-											<div class="item-inner">
-												<div class="item-title">custom 5d8</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title">custom 5d8</div>
+												</div>
 											</div>
-										</div>
-									</li>
-								</ul>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				
-				
-				
+					
 					<table class="dice-table md-only">
 						<tr>
 							<td class="table-col" id="D2"><a href="/dicecount/" class="icon link special color-white dice">2</a></td>

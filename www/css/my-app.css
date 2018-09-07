@@ -199,6 +199,20 @@
 	float:left;
 }
 
+.dice-icon-history {
+	background-size:100% 100%;
+	background-image:url("");
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	text-align:center;
+	line-height:1.5em;
+	width:1.5em;
+	height:1.5em;
+	margin-left:0;
+	margin-top:0;
+	float:left;
+}
+
 .d2-icon {
 	background-image:url("../img/D2-nofill.svg");
 }

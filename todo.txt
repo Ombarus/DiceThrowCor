@@ -1,11 +1,11 @@
 TODO :
 
-- BUG: sometimes the side panels stop responding on the home page. Not sure of repro-steps yet
-- avoid duplicate name in presets
+- can only delete one preset at a time
 - save preset should suggest name (same as the results page's title)
-- exit app button ?
-- history page
-	- clear history button
+- exit app button ? (won't work on ios !)
+- clear history button
+- delete single history line button
+- load history roll button
 - settings page
 	- (dice count first or dice type first ?)
 	- (clear history)
@@ -15,6 +15,7 @@ TODO :
 		- remember roll_bonus
 		- remember dice_bonus
 - real about page
+- manage preset could allow rename ? (button on the right and add toggle for sorting that replace rename button ?)
 - translation ?
 - wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
 	- help in the about ?
@@ -31,6 +32,14 @@ Things to document :
 
 
 DONE :
+- history page
+- avoid duplicate name in presets
+- BUG: sometimes the side panels stop responding on the home page. Not sure of repro-steps yet
+- BUG: side-panel stayed visible between pages in side-menu
+
+
+
+
 - "add as preset" shortcut in result page
 - manage preset page
 - do roll from presets

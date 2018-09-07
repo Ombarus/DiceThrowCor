@@ -19,16 +19,16 @@ var sample_data = JSON.parse('{ '+
 '		{"roll_data":{"dice":8,"count":5, "max":false, "min":false, "bonus":0, "bonus_roll":0}, "results":[1,2,8,4,5]} '+
 '	], '+
 '	"history":[ '+
-'		[ '+
+'		{ "date":"2018-08-08", "roll":[ '+
 '			{"roll_data":{"dice":6,"count":3, "max":true, "min":false, "bonus":-2, "bonus_roll":0}, "results":[1,5,12]}, '+
 '			{"roll_data":{"dice":8,"count":5, "max":false, "min":false, "bonus":0, "bonus_roll":0}, "results":[1,2,8,4,5]} '+
-'		], '+
-'		[ '+
+'		]}, '+
+'		{ "date":"2018-08-08", "roll":[ '+
 '			{"roll_data":{"dice":8,"count":5, "max":false, "min":false, "bonus":0, "bonus_roll":0}, "results":[1,2,8,4,5]} '+
-'		], '+
-'		[ '+
+'		]}, '+
+'		{ "date":"2018-08-08", "roll":[ '+
 '			{"roll_data":{"dice":6,"count":20, "max":true, "min":false, "bonus":-2, "bonus_roll":0}, "results":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]} '+
-'		] '+
+'		]} '+
 '	], '+
 '	"presets":[ '+
 '		{ '+
@@ -118,8 +118,11 @@ function ProcessClick(ev) {
 }
 
 function AddHistory(data) {
+	var d = new Date();
+	var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+
 	var max_history = 20;
-	save_data.history.push(JSON.parse(JSON.stringify(data))); // a strange way to deep clone the roll instead of copying the reference
+	save_data.history.push({"date":datestring, "roll":JSON.parse(JSON.stringify(data))}); // a strange way to deep clone the roll instead of copying the reference
 	if (save_data.history.length > max_history) {
 		save_data.history.splice(0, save_data.history.length-max_history);
 	}
@@ -331,17 +334,22 @@ function UpdateSumText() {
 }
 
 function UpdateDiceTitle() {
+	var title = GetRollGeneratedName(save_data.current_roll);
+	$$("#title-results").text(title);
+}
+
+function GetRollGeneratedName(roll) {
 	var title = "";
-	if (save_data.current_roll.length > 1) {
+	if (roll.length > 1) {
 		title = "Multiple Roll";
 	}
 	else {
-		var dicetype = save_data.current_roll[0].roll_data.dice;
-		var dicecount = save_data.current_roll[0].roll_data.count;
-		var bonus_dice = save_data.current_roll[0].roll_data.bonus_dice;
-		var bonus_roll = save_data.current_roll[0].roll_data.bonus_roll;
-		var reroll_max = save_data.current_roll[0].roll_data.max;
-		var reroll_one = save_data.current_roll[0].roll_data.min;
+		var dicetype = roll[0].roll_data.dice;
+		var dicecount = roll[0].roll_data.count;
+		var bonus_dice = roll[0].roll_data.bonus_dice;
+		var bonus_roll = roll[0].roll_data.bonus_roll;
+		var reroll_max = roll[0].roll_data.max;
+		var reroll_one = roll[0].roll_data.min;
 		
 		title += dicecount + "D"
 		if (bonus_dice != 0) {
@@ -375,7 +383,7 @@ function UpdateDiceTitle() {
 		}
 	}
 	
-	$$("#title-results").text(title);
+	return title;
 }
 
 function UpdateOptionsTitle() {
@@ -402,49 +410,56 @@ function UpdateDiceList() {
 		{
 			var dice = inner.roll_data.dice;
 			var result = Math.max(1, inner.results[j]);
-			if (dice == 2)
-			{
-				content += "<div class='dice-icon d2-icon'>" + result + "</div>"
-			}
-			else if (dice == 4)
-			{
-				content += "<div class='dice-icon d4-icon'>" + result + "</div>"
-			}
-			else if (dice == 6)
-			{
-				content += "<div class='dice-icon d6-icon'>" + result + "</div>"
-			}
-			else if (dice == 8)
-			{
-				content += "<div class='dice-icon d8-icon'>" + result + "</div>"
-			}
-			else if (dice == 10)
-			{
-				content += "<div class='dice-icon d10-icon'>" + result + "</div>"
-			}
-			else if (dice == 12)
-			{
-				content += "<div class='dice-icon d12-icon'>" + result + "</div>"
-			}
-			else if (dice == 20)
-			{
-				content += "<div class='dice-icon d20-icon'>" + result + "</div>"
-			}
-			else if (dice == 100)
-			{
-				content += "<div class='dice-icon d100-icon'>" + result + "</div>"
-			}
-			else
-			{
-				content += "<div class='dice-icon'>" + result + "</div>"
-			}
+			content += "<div class='dice-icon " + GetIconClassForDice(dice) + "'>" + result + "</div>"
 		}
 	}
 	
 	$$("#dice-list").append(content); // text(content) will escape html tags, use append()
 }
 
-var initial_data = JSON.parse('{"version":2, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[]}');
+function GetIconClassForDice(dice) {
+	content = "";
+	if (dice == 2)
+	{
+		content = "d2-icon";
+	}
+	else if (dice == 4)
+	{
+		content = "d4-icon";
+	}
+	else if (dice == 6)
+	{
+		content = "d6-icon";
+	}
+	else if (dice == 8)
+	{
+		content = "d8-icon";
+	}
+	else if (dice == 10)
+	{
+		content = "d10-icon";
+	}
+	else if (dice == 12)
+	{
+		content = "d12-icon";
+	}
+	else if (dice == 20)
+	{
+		content = "d20-icon";
+	}
+	else if (dice == 100)
+	{
+		content = "d100-icon";
+	}
+	else
+	{
+		content = "";
+	}
+	
+	return content;
+}
+
+var initial_data = JSON.parse('{"version":3, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[]}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -506,12 +521,74 @@ function UpdateSortablePresetList() {
 	$$("#preset-sortable-list").append(content); // text(content) will escape html tags, use append()
 }
 
+function UpdateHistoryList() {
+	var content = "";
+	var current_date = "";
+	var first_content = true;
+	$$("#history-list").text(content);
+	
+	if (save_data.history.length <= 0) {
+		content = '<div class="block-title">History is Empty</div>';
+		$$("#history-list").append(content); // text(content) will escape html tags, use append()
+		return;
+	}
+	
+	for (var i = 0; i < save_data.history.length; i++) {
+		var data = save_data.history[i];
+		if (current_date == "" || current_date != data.date) {
+			current_date = data.date;
+			// update content header
+			if (first_content == false) {
+				content += '</div>';
+				first_content = true;
+			}
+			content += '<div class="block-title">' + current_date + '</div>';
+			content += '<div class="list"><ul>';
+		}
+		var dice = data.roll[0].roll_data.dice;
+		var max = GetMax()
+		content +=  '<li>' +
+					'	<div class="item-content">' +
+					'		<div class="item-media">' +
+					'			<div class="dice-icon-history ' + GetIconClassForDice(dice) + '">' + dice + '</div>' +
+					'		</div>' +
+					'		<a href="/dicestats/" class="item-inner">' +
+					'			<div class="item-title">' + GetRollGeneratedName(data.roll) + '</div>' +
+					'		</a>' +
+					'		<a href="#" class="item-media open-confirm right">' +
+					'			<i class="icon f7-icons color-red ios-only">close_round_fill</i>' +
+					'			<i class="icon material-icons color-red md-only">cancel</i>' +
+					'		</a>' +
+					'	</div>' +
+					'</li>';
+	}
+	content += '<div class="list"><ul>';
+	$$("#history-list").append(content); // text(content) will escape html tags, use append()
+}
+
 
 $$(document).on('page:init', function (e) {
 	$$('.open-prompt').on('click', function () {
 		app.dialog.prompt('', 'Preset Name', function (name) {
-			save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
-			app.form.storeFormData("save.json", save_data);
+			var ok = true;
+			for (var i = 0; i < save_data.presets.length; i++) {
+				var existingpreset = save_data.presets[i].name;
+				if (existingpreset == name) {
+					// confirm dialog run async so I need to stop process here until dialog complete
+					ok = false;
+					app.dialog.confirm(existingpreset, 'Overwrite ?', function () {
+						save_data.presets[i].roll_data = JSON.parse(JSON.stringify(save_data.current_roll));
+						app.form.storeFormData("save.json", save_data);
+					}, function() {
+						ok = false;
+					});
+					break;
+				}
+			}
+			if (ok == true) {
+				save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
+				app.form.storeFormData("save.json", save_data);
+			}
 		});
 	});
 	
@@ -542,7 +619,6 @@ $$(document).on('page:init', function (e) {
 	$$("#preset-sortable-list").on("sortable:sort", function(ev) {
 		var ifrom = ev.detail.from;
 		var ito = ev.detail.to;
-		console.log("moving preset " + ifrom + " to preset " + ito);
 		var tmp = save_data.presets[ifrom];
 		save_data.presets[ifrom] = save_data.presets[ito];
 		save_data.presets[ito] = tmp;
@@ -555,7 +631,7 @@ $$(document).on('page:init', function (e) {
 	if ($$("input[name='dice-reroll-max']").length != 0) {
 		var input = $$("input[name='dice-reroll-max']");
 		if (save_data.history.length > 0) {
-			 var last_roll = save_data.history[save_data.history.length-1];
+			 var last_roll = save_data.history[save_data.history.length-1].roll;
 			 if (last_roll[last_roll.length-1].roll_data.max == true) {
 				 input.attr('checked',true);
 			 }
@@ -567,7 +643,7 @@ $$(document).on('page:init', function (e) {
 	if ($$("input[name='dice-reroll-min']").length != 0) {
 		var input = $$("input[name='dice-reroll-min']");
 		if (save_data.history.length > 0) {
-			 var last_roll = save_data.history[save_data.history.length-1];
+			 var last_roll = save_data.history[save_data.history.length-1].roll;
 			 if (last_roll[last_roll.length-1].roll_data.min == true) {
 				 input.attr('checked',true);
 			 }
@@ -654,4 +730,9 @@ $$(document).on('page:init', function (e) {
 		UpdateDiceList();
 		UpdateDiceTitle();
 	}
+	
+	if ($$("#history-list").length != 0) {
+		UpdateHistoryList();
+	}
+	
 });
