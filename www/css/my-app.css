@@ -72,6 +72,12 @@
 .showhistory {}
 .managepreset {}
 .preset-list {}
+.dohistory {}
+.doerasehistory {}
+.doeraseallhistory {}
+.back-nav {}
+.more-nav {}
+.home-nav {}
 
 .panel-header {
 	margin:0px;

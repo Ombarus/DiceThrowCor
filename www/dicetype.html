@@ -1,0 +1,125 @@
+<!-- Scrollable page content -->
+
+<!-- Initial Page, "data-name" contains page name -->
+<div data-name="dicetype" class="page">
+	<!-- Top Navbar -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left back-nav">
+				<a href="/first/" class="link back">
+					<i class="icon icon-back"></i>
+					<span class="ios-only">Back</span>
+				</a>
+			</div>
+			<div class="left home-nav">
+				<a href="#" class="link icon-only panel-open" data-panel="left">
+					<i class="icon f7-icons ios-only">menu</i>
+					<i class="icon material-icons md-only">menu</i>
+				</a>
+			</div>
+			<div class="title center">Which Dice ?</div>
+			<div class="right more-nav">
+				<a href="#" class="link popover-open" data-popover=".popover-count">
+					<span class="ios-only">More</span>
+					<i class="icon material-icons md-only">more_vert</i>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page-content">
+
+		<div class="list accordion-list inset">				
+			<div class="accordion-item">
+				<a href="#" class="item-link item-content">
+					<div class="item-inner">
+						<div class="item-title">Presets</div>
+					</div>
+				</a>
+				<div class="accordion-item-content">
+					<div class="list">
+						<ul id="preset-list">
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">3D6 reroll 6</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Shadowrun spellcasting</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">2-handed sword damage</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">custom 5d8</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<table class="dice-table md-only">
+			<tr>
+				<td class="table-col" id="D2"><a href="/dicetypenext/" class="icon link special color-white dice">2</a></td>
+				<td class="table-col" id="D4"><a href="/dicetypenext/" class="icon link special color-white dice">4</a></td>
+				<td class="table-col" id="D6"><a href="/dicetypenext/" class="icon link special color-white dice">6</a></td>
+			</tr><tr>
+				<td class="table-col" id="D8"><a href="/dicetypenext/" class="icon link special color-white dice">8</a></td>
+				<td class="table-col" id="D10"><a href="/dicetypenext/" class="icon link special color-white dice">10</a></td>
+				<td class="table-col" id="D12"><a href="/dicetypenext/" class="icon link special color-white dice">12</a></td>
+			</tr><tr>
+				<td class="table-col" id="D20"><a href="/dicetypenext/" class="icon link special color-white dice">20</a></td>
+				<td class="table-col"><a class="icon special">&nbsp;</a></td>
+				<td class="table-col" id="D100"><a href="/dicetypenext/" class="icon link special color-white dice">100</a></td>
+			</tr>
+		</table>
+		
+		<table class="dice-table ios-only">
+			<tr>
+				<td class="table-col" id="D2ios"><a href="/dicetypenext/" class="icon link special color-white dice">2</a></td>
+				<td class="table-col" id="D4ios"><a href="/dicetypenext/" class="icon link special color-white dice">4</a></td>
+				<td class="table-col" id="D6ios"><a href="/dicetypenext/" class="icon link special color-white dice">6</a></td>
+			</tr><tr>
+				<td class="table-col" id="D8ios"><a href="/dicetypenext/" class="icon link special color-white dice">8</a></td>
+				<td class="table-col" id="D10ios"><a href="/dicetypenext/" class="icon link special color-white dice">10</a></td>
+				<td class="table-col" id="D12ios"><a href="/dicetypenext/" class="icon link special color-white dice">12</a></td>
+			</tr><tr>
+				<td class="table-col" id="D20ios"><a href="/dicetypenext/" class="icon link special color-white dice">20</a></td>
+				<td class="table-col"><a class="icon special">&nbsp;</a></td>
+				<td class="table-col" id="D100ios"><a href="/dicetypenext/" class="icon link special color-white dice">100</a></td>
+			</tr>
+		</table>
+
+		
+		<div class="list inline-labels no-hairlines-md" style="margin-left:10%;margin-right:10%">
+			<ul>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-input-wrap">
+							<form id="dice-side" action="#" method="GET" class="form-ajax-submit">
+								<input name="dice-side-input" type="number" placeholder="Custom then hit enter" validate>
+							</form>
+							<span class="input-clear-button"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>

@@ -3807,7 +3807,7 @@
     // Ajax start callback
     proceedRequest = fireCallback('beforeSend', xhr, options);
     if (proceedRequest === false) { return xhr; }
-
+	
     // Send XHR
     xhr.send(postData);
 

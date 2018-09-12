@@ -35,7 +35,9 @@ var sample_data = JSON.parse('{ '+
 '			"roll_data":[{"dice":6,"count":3, "max":true, "min":false, "bonus":-2, "bonus_roll":0},{"dice":8,"count":5, "max":false, "min":false, "bonus":0, "bonus_roll":0}], '+
 '			"name":"1d6+3 spellcasting" '+
 '		} '+
-']}');
+'	],'+
+'	"settings": {"first_page":"dice", "show_roll_options":true}'+
+'}');
 ///////
 
 $$("#dice-side").on("formajax:success", function() {
@@ -43,7 +45,7 @@ $$("#dice-side").on("formajax:success", function() {
 	if (val > 0)
 	{
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.dice = parseInt(val);
-		app.router.navigate("/dicecount/");
+		app.router.navigate("/dicetypenext/");
 	}
 	else
 	{
@@ -76,7 +78,7 @@ function ProcessClick(ev) {
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_dice = parseInt(dicebonus);
 		save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_roll = parseInt(rollbonus);
 		
-		DoRollFromData();
+		//DoRollFromData();
 	}
 	if (btn.hasClass("addroll"))
 	{
@@ -108,12 +110,58 @@ function ProcessClick(ev) {
 		}
 		if (presetdata != null) {
 			save_data.current_roll = JSON.parse(JSON.stringify(presetdata));
-			DoRollFromData();
+			//DoRollFromData();
 			app.router.navigate("/dicestats/");
 		}
 		else {
 			console.log("could not find preset named " + presetname);
 		}
+	}
+	if (btn.hasClass("dohistory")) {
+		var index = parseInt(btn.find("#history-index").val());
+		save_data.current_roll = JSON.parse(JSON.stringify(save_data.history[index].roll));
+		app.router.navigate("/dicestats/");
+	}
+	if (btn.hasClass("doeraseallhistory")) {
+		app.dialog.confirm('This will clear all past rolls', 'Are you sure ?', function () {
+			save_data.history = JSON.parse('[]');
+			app.form.storeFormData("save.json", save_data);
+			UpdateHistoryList();
+			$$("a").off("click", ProcessClick);
+			$$("a").on("click", ProcessClick);
+			console.log(save_data);
+		});		
+	}
+	if (btn.hasClass("doerasehistory")) {
+		var index = parseInt(btn.parents(".item-content").find("#history-index").val());
+		var name = btn.parents(".item-content").find(".item-title").text();
+		app.dialog.confirm('Really delete ?', name, function () {
+			save_data.history.splice(index, 1);
+			app.form.storeFormData("save.json", save_data);
+			UpdateHistoryList();
+			$$("a").off("click", ProcessClick);
+			$$("a").on("click", ProcessClick);
+			console.log(save_data);
+		});		
+	}
+	if (btn.hasClass("open-confirm"))	 {
+		var presetname = $$(ev.target).parents(".item-content").find(".item-inner").text();
+		app.dialog.confirm('Delete Preset ?', presetname, function (name) {
+			for (var i = 0; i < save_data.presets.length; i++) {
+				if (save_data.presets[i].name == presetname) {
+					save_data.presets.splice(i, 1);
+					break; // Carefull not to continue to loop here !
+				}
+			}
+			app.form.storeFormData("save.json", save_data);
+			UpdateSortablePresetList();
+			// this list might stay loaded because of Ajax magic so update it too if it's there.
+			if ($$("#preset-list").length != 0) {
+				UpdatePresetList();
+			}
+			$$("a").off("click", ProcessClick);
+			$$("a").on("click", ProcessClick);
+		});
 	}
 }
 
@@ -129,6 +177,7 @@ function AddHistory(data) {
 }
 
 function DoRollFromData() {
+	console.log("doing roll");
 	for (var i = 0; i < save_data.current_roll.length; i++) {
 		save_data.current_roll[i].results = Roll(save_data.current_roll[i].roll_data);	
 	}
@@ -459,7 +508,7 @@ function GetIconClassForDice(dice) {
 	return content;
 }
 
-var initial_data = JSON.parse('{"version":3, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[]}');
+var initial_data = JSON.parse('{"version":4, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true}}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -495,9 +544,7 @@ function UpdatePresetList() {
 	}
 	$$("#preset-list").append(content); // text(content) will escape html tags, use append()
 }
-$$("a").on("click", function(ev) {
-	ProcessClick(ev);
-});
+$$("a").on("click", ProcessClick);
 
 function UpdateSortablePresetList() {
 	var content = "";
@@ -508,8 +555,8 @@ function UpdateSortablePresetList() {
 		content += '<li>' +
 		'	<div class="item-content">' +
 		'		<a href="#" class="item-media open-confirm">' +
-		'			<i class="icon f7-icons color-red ios-only">close_round_fill</i>' +
-		'			<i class="icon material-icons color-red md-only">remove_circle</i>' +
+		'			<i class="icon f7-icons color-red ios-only open-confirm">close_round_fill</i>' +
+		'			<i class="icon material-icons color-red md-only open-confirm">remove_circle</i>' +
 		'		</a>' +
 		'		<div class="item-inner">' +
 		'			<div class="item-title">' + presetname + '</div>' +
@@ -539,9 +586,9 @@ function UpdateHistoryList() {
 			current_date = data.date;
 			// update content header
 			if (first_content == false) {
-				content += '</div>';
-				first_content = true;
+				content += '</ul></div>';
 			}
+			first_content = false;
 			content += '<div class="block-title">' + current_date + '</div>';
 			content += '<div class="list"><ul>';
 		}
@@ -552,12 +599,13 @@ function UpdateHistoryList() {
 					'		<div class="item-media">' +
 					'			<div class="dice-icon-history ' + GetIconClassForDice(dice) + '">' + dice + '</div>' +
 					'		</div>' +
-					'		<a href="/dicestats/" class="item-inner">' +
-					'			<div class="item-title">' + GetRollGeneratedName(data.roll) + '</div>' +
+					'		<a href="#" class="item-inner dohistory">' +
+					'			<div class="item-title dohistory">' + GetRollGeneratedName(data.roll) + 
+					'			<input id="history-index" type="hidden" value="' + i + '"/></div>' +
 					'		</a>' +
-					'		<a href="#" class="item-media open-confirm right">' +
-					'			<i class="icon f7-icons color-red ios-only">close_round_fill</i>' +
-					'			<i class="icon material-icons color-red md-only">cancel</i>' +
+					'		<a href="#" class="item-media right doerasehistory">' +
+					'			<i class="icon f7-icons color-red ios-only doerasehistory">close_round_fill</i>' +
+					'			<i class="icon material-icons color-red md-only doerasehistory">cancel</i>' +
 					'		</a>' +
 					'	</div>' +
 					'</li>';
@@ -566,8 +614,48 @@ function UpdateHistoryList() {
 	$$("#history-list").append(content); // text(content) will escape html tags, use append()
 }
 
+function PresetSortEvent(ev) {
+	var ifrom = ev.detail.from;
+	var ito = ev.detail.to;
+	var tmp = save_data.presets[ifrom];
+	save_data.presets[ifrom] = save_data.presets[ito];
+	save_data.presets[ito] = tmp;
+	app.form.storeFormData("save.json", save_data);
+	if ($$("#preset-list").length != 0) {
+		UpdatePresetList();
+		$$("a").off("click", ProcessClick);
+		$$("a").on("click", ProcessClick);
+		$$("#preset-sortable-list").off("sortable:sort", PresetSortEvent);
+		$$("#preset-sortable-list").on("sortable:sort", PresetSortEvent);
+	}
+}
 
-$$(document).on('page:init', function (e) {
+function UpdateNav(page) {
+	var routepath = page.route.path;
+	var navback = page.$el.find(".back-nav");
+	var navhome = page.$el.find(".home-nav");
+	var navmore = page.$el.find(".more-nav");
+	
+	if (routepath == "/first/" || routepath == undefined) {
+		navback.remove();
+		navmore.remove();
+	}
+	else
+	{
+		navhome.remove();
+	}
+}
+
+app.router.navigate("/first/", {"animate":false, "pushState":false, "history":false});
+
+$$(document).on('page:beforein', function (e, page) {
+	UpdateNav(page);
+});
+
+$$(document).on('page:init', function (e, page) {
+	if (page.$el.attr("data-name") == "dicestats") {
+		DoRollFromData();
+	}
 	$$('.open-prompt').on('click', function () {
 		app.dialog.prompt('', 'Preset Name', function (name) {
 			var ok = true;
@@ -592,40 +680,26 @@ $$(document).on('page:init', function (e) {
 		});
 	});
 	
+	// Update to html data must be done BEFORE registering to events or they won't work
 	if ($$("#preset-list").length != 0) {
 		UpdatePresetList();
 	}
 	if ($$("#preset-sortable-list").length != 0) {
 		UpdateSortablePresetList();
 	}
+	if ($$("#history-list").length != 0) {
+		UpdateHistoryList();
+	}
+	$$("#preset-sortable-list").on("sortable:sort", PresetSortEvent);
 	
-	$$('.open-confirm').on('click', function (e) {
-		var presetname = $$(e.target).parents(".item-content").find(".item-inner").text();
-		app.dialog.confirm(presetname, 'Delete Preset ?', function (name) {
-			for (var i = 0; i < save_data.presets.length; i++) {
-				if (save_data.presets[i].name == presetname) {
-					save_data.presets.splice(i, 1);
-					break; // Carefull not to continue to loop here !
-				}
-			}
-			app.form.storeFormData("save.json", save_data);
-			UpdateSortablePresetList();
-			// this list might stay loaded because of Ajax magic so update it too if it's there.
-			if ($$("#preset-list").length != 0) {
-				UpdatePresetList();
-			}
-		});
-	});
-	$$("#preset-sortable-list").on("sortable:sort", function(ev) {
-		var ifrom = ev.detail.from;
-		var ito = ev.detail.to;
-		var tmp = save_data.presets[ifrom];
-		save_data.presets[ifrom] = save_data.presets[ito];
-		save_data.presets[ito] = tmp;
+	$$("input[name='first-page']").on("change", function(ev) {
+		save_data.settings.first_page = ev.target.value;
 		app.form.storeFormData("save.json", save_data);
-		if ($$("#preset-list").length != 0) {
-			UpdatePresetList();
-		}
+	});
+	$$("input[name='option-option-page']").on("change", function(ev) {
+		var show_page = $$(ev.target).is(':checked');
+		save_data.settings.show_roll_options = show_page;
+		app.form.storeFormData("save.json", save_data);
 	});
 	
 	if ($$("input[name='dice-reroll-max']").length != 0) {
@@ -683,7 +757,7 @@ $$(document).on('page:init', function (e) {
 		if (val > 0)
 		{
 			save_data.current_roll[save_data.current_roll.length-1].roll_data.count = parseInt(val);
-			app.router.navigate("/diceoptions/");
+			app.router.navigate("/dicecountnext/");
 		}
 		else
 		{
@@ -695,16 +769,14 @@ $$(document).on('page:init', function (e) {
 		if (val > 0)
 		{
 			save_data.current_roll[save_data.current_roll.length-1].roll_data.dice = parseInt(val);
-			app.router.navigate("/dicecount/");
+			app.router.navigate("/dicetypenext/");
 		}
 		else
 		{
 			console.log("error, NAN");
 		}
 	});
-	$$("a").on("click", function(ev) {
-		ProcessClick(ev);
-	});
+	$$("a").on("click", ProcessClick);
 	
 	if ($$("#title-options").length != 0) {
 		UpdateOptionsTitle();
@@ -731,8 +803,25 @@ $$(document).on('page:init', function (e) {
 		UpdateDiceTitle();
 	}
 	
-	if ($$("#history-list").length != 0) {
-		UpdateHistoryList();
+	var first_page_settings = $$("input[name='first-page']");
+	if (first_page_settings.length !=0) {
+		for (var i = 0; i < first_page_settings.length; i++) {
+			var input = $$(first_page_settings[i]);
+			if (input.attr("value") == save_data.settings.first_page) {
+				input.attr('checked',true);
+			}
+			else
+			{
+				input.removeAttr('checked');
+			}
+		}
+		
+		var skip_options = $$("input[name='option-option-page']");
+		if (save_data.settings.show_roll_options == true) {
+			skip_options.attr('checked', true);
+		}
+		else {
+			skip_options.removeAttr('checked');
+		}
 	}
-	
 });

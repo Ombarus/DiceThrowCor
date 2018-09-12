@@ -1,20 +1,12 @@
 TODO :
-
-- can only delete one preset at a time
+- BUG: sometimes end up adding rolls without wanting too (hard repro)
+	- roll preset then do a new roll and preset roll will stay in the current_result ?
+- in history page, if roll match preset, use preset name ?
 - save preset should suggest name (same as the results page's title)
 - exit app button ? (won't work on ios !)
-- clear history button
-- delete single history line button
-- load history roll button
-- settings page
-	- (dice count first or dice type first ?)
-	- (clear history)
-	- (remember last roll's settings) (as checkbox)
-		- remember reroll
-		- remember reroll 1
-		- remember roll_bonus
-		- remember dice_bonus
+- align history icon and numbers better
 - real about page
+- Should going to historical results get a "back to history" button instead of "home" button ?
 - manage preset could allow rename ? (button on the right and add toggle for sorting that replace rename button ?)
 - translation ?
 - wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
@@ -28,10 +20,22 @@ Things to document :
 	- rolls can never be below 1
 	- reroll max will sum the final total (a la shadowrun)
 	- reroll 1s will only reroll once (so it can still be 1)
+	- skip options will roll basic roll without any bonus or re-roll
 
 
 
 DONE :
+- settings page
+	- (dice count first or dice type first ?)
+		- Still sometimes go back to blank page
+	- skip option page
+- can only delete one preset at a time (have to be careful of when events are registered when I use dynamic html generated through js)
+- load history roll button
+- clear history button
+- delete single history line button
+
+
+
 - history page
 - avoid duplicate name in presets
 - BUG: sometimes the side panels stop responding on the home page. Not sure of repro-steps yet
