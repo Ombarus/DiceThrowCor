@@ -177,7 +177,6 @@ function AddHistory(data) {
 }
 
 function DoRollFromData() {
-	console.log("doing roll");
 	for (var i = 0; i < save_data.current_roll.length; i++) {
 		save_data.current_roll[i].results = Roll(save_data.current_roll[i].roll_data);	
 	}
@@ -646,6 +645,28 @@ function UpdateNav(page) {
 	}
 }
 
+function callback_save_preset(name) {
+	var ok = true;
+	for (var i = 0; i < save_data.presets.length; i++) {
+		var existingpreset = save_data.presets[i].name;
+		if (existingpreset == name) {
+			// confirm dialog run async so I need to stop process here until dialog complete
+			ok = false;
+			app.dialog.confirm(existingpreset, 'Overwrite ?', function () {
+				save_data.presets[i].roll_data = JSON.parse(JSON.stringify(save_data.current_roll));
+				app.form.storeFormData("save.json", save_data);
+			}, function() {
+				ok = false;
+			});
+			break;
+		}
+	}
+	if (ok == true) {
+		save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
+		app.form.storeFormData("save.json", save_data);
+	}
+}
+
 app.router.navigate("/first/", {"animate":false, "pushState":false, "history":false});
 
 $$(document).on('page:beforein', function (e, page) {
@@ -656,7 +677,35 @@ $$(document).on('page:init', function (e, page) {
 	if (page.$el.attr("data-name") == "dicestats") {
 		DoRollFromData();
 	}
+	else if (save_data.current_roll[0].results != undefined && save_data.current_roll[0].results.length > 0) {
+		for (var i = 0; i < save_data.current_roll.length; i++) {
+			save_data.current_roll = JSON.parse('[{"roll_data":{}, "results":[]}]');
+		}
+	}
 	$$('.open-prompt').on('click', function () {
+		app.dialog.create({
+			title: 'Preset Name',
+			text: '',
+			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input input-focused input-with-value" placeholder="Unique Name" value="' + GetRollGeneratedName(save_data.current_roll) + '"><span class="input-clear-button"></span></div></div>',
+			buttons: [
+				{
+					text: app.params.dialog.buttonCancel,
+					keyCodes: [27],
+				},
+				{
+					text: app.params.dialog.buttonOk,
+					bold: true,
+					keyCodes: [13],
+				},
+			],
+			onClick: function(dialog, index) {
+				const inputValue = dialog.$el.find('.dialog-input').val();
+				//if (index === 0 && callbackCancel) callbackCancel(inputValue);
+				if (index === 1) callback_save_preset(inputValue);
+			},
+			destroyOnClose:true,
+		}).open()
+		/*
 		app.dialog.prompt('', 'Preset Name', function (name) {
 			var ok = true;
 			for (var i = 0; i < save_data.presets.length; i++) {
@@ -678,6 +727,7 @@ $$(document).on('page:init', function (e, page) {
 				app.form.storeFormData("save.json", save_data);
 			}
 		});
+		*/
 	});
 	
 	// Update to html data must be done BEFORE registering to events or they won't work
