@@ -4,6 +4,7 @@ var twister = new MersenneTwister();
 var app = new Framework7({
 	root: '#app',
     routes: routes,
+	pushState: true,
     panel: {
         swipe: "left",
     }
@@ -55,6 +56,13 @@ $$("#dice-side").on("formajax:success", function() {
 
 function ProcessClick(ev) {
 	var btn = $$(ev.target);
+	if (btn.hasClass("test")) {
+		console.log($$.isEmptyObject(app.router.previousRoute));
+		console.log(JSON.stringify(app.router.previousRoute) == JSON.stringify("{}"));
+		if (app.router.previousRoute != {}) {
+			app.router.back("/first/");
+		}
+	}
 	if (btn.hasClass("dice"))
 	{
 		var val = btn.text();
@@ -530,6 +538,12 @@ if ($$("#preset-sortable-list").length != 0) {
 function UpdatePresetList() {
 	var content = "";
 	$$("#preset-list").text(content);
+	if (save_data.presets.length <= 0) {
+		$$(".preset-accordion").hide();
+	}
+	else {
+		$$(".preset-accordion").show();
+	}
 	for (var i = 0; i < save_data.presets.length; i++)
 	{
 		var presetname = save_data.presets[i].name;
@@ -548,6 +562,11 @@ $$("a").on("click", ProcessClick);
 function UpdateSortablePresetList() {
 	var content = "";
 	$$("#preset-sortable-list").text(content);
+	if (save_data.presets.length <= 0) {
+		content = '<div class="block-title">You have no Preset</div>';
+		$$("#preset-sortable-list").append(content); // text(content) will escape html tags, use append()
+		return;
+	}
 	for (var i = 0; i < save_data.presets.length; i++)
 	{
 		var presetname = save_data.presets[i].name;
@@ -674,14 +693,14 @@ $$(document).on('page:beforein', function (e, page) {
 });
 
 $$(document).on('page:init', function (e, page) {
-	if (page.$el.attr("data-name") == "dicestats") {
+	if (page.$el.attr("data-name") == "dicestats" && page.$el.hasClass("page-next")) {
 		DoRollFromData();
 	}
 	else if (save_data.current_roll[0].results != undefined && save_data.current_roll[0].results.length > 0) {
 		for (var i = 0; i < save_data.current_roll.length; i++) {
 			save_data.current_roll = JSON.parse('[{"roll_data":{}, "results":[]}]');
 		}
-	}
+	}	
 	$$('.open-prompt').on('click', function () {
 		app.dialog.create({
 			title: 'Preset Name',
@@ -832,6 +851,10 @@ $$(document).on('page:init', function (e, page) {
 		UpdateOptionsTitle();
 	}
 	
+	if ($$("#tab-1").length != 0 && save_data.current_roll.length == 1 && save_data.current_roll[0].results.length == 1) {
+		app.tab.show($$("#tab-2"), false);
+	}
+	
 	if ($$("#stats-count").length != 0)
 	{
 		$$("#stats-count").text(GetCount());
@@ -875,3 +898,11 @@ $$(document).on('page:init', function (e, page) {
 		}
 	}
 });
+
+if (document != undefined) {
+	document.addEventListener('backbutton', function (e) {
+		if (app.router.previousRoute != "/") {
+			app.router.back("/first/");
+		}
+	});
+}

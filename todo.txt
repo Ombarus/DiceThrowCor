@@ -1,4 +1,16 @@
 TODO :
+- link to "rate this app" ?
+- BUG : preset doesn't stay on first page when first page is dicecount
+- could preset show up as shortcuts ? https://developer.android.com/guide/topics/ui/shortcuts/
+- app icon
+	- Adaptive Launcher Icons (latest API 26 icons)
+	- Legacy Launcher Icons (before API 25)
+- svg button still slightly deform on larger screen ?
+	- option page on tablet is not very pretty (too wide, not enough space between elements ?)
+- Splash (even tough loading is fast) (re-use dice logo ? or Ombarus Dev logo ?)
+- back button (android) should not quit the app but trigger my "back" or dismiss dialog
+- settings option to hide tooltips ?
+- validate account info for google merchant paiement method (deposit)
 - in history page, if roll match preset, use preset name ?
 - align history icon and numbers better
 - real about page
@@ -6,11 +18,16 @@ TODO :
 - manage preset could allow rename ? (button on the right and add toggle for sorting that replace rename button ?)
 - find a way to use "back" instead of going /first/ in settings page (because the /first/ might have changed we need to force a reload of the cache and I can't figure out how to do it without trashing the stack)
 - settings : color scheme ? (using framework7 themes should be fairly easy ?)
-- translation ?
+- translation ? (https://github.com/framework7io/framework7/issues/1115 or https://muut.com/framework7#!/framework7/getting-started:how-to-localizetranslate)
 - exit app button ? (won't work on ios !)
 - wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
 	- help in the about ?
 	- question mark in the corner of the title bar for each window ?
+other options ?
+	- Drop x lowest
+	- Drop x highest
+	- Reroll every one
+	- Reroll any number (not only 1s and maxs)
 	
 :::
 Things to document :
@@ -20,9 +37,28 @@ Things to document :
 	- reroll 1s will only reroll once (so it can still be 1)
 	- skip options will roll basic roll without any bonus or re-roll
 
-
+:::
+name ideas ?
+	- Dice DM
+	- Dice Throw
+	- RNG God
+	- Pen&Paper helper
+	- Dice Helper
+	- RPG Dice
+	- Quick Dice
+	
 
 DONE :
+- hide preset rolldown when no preset exist
+- message when presets are empty ("no preset") in preset management page
+- if throw is only one dice... show detail page instead of stats
+- "undefined" rolls show up in history on device (previous-page was being reloaded and throwing the dice twice)
+- fix d20 visual ?
+
+
+
+
+- send to smash : space shooter proto, nethack in space
 - Tooltips ? (does framework7 has tooltip ? (answer : yes))
 - save preset should suggest name (same as the results page's title)
 - BUG: sometimes end up adding rolls without wanting too (hard repro)
