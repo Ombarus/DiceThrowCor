@@ -5,7 +5,7 @@
         A fast, simple, practical dice throwing app for all.
     </description>
     <author email="ombarus.dev@gmail.com" href="http://ombarusdev.com">
-        Apache Cordova Team
+        Ombarus
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />

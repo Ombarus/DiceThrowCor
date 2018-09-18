@@ -11,6 +11,7 @@ var app = new Framework7({
 });
 var mainView = app.views.create('.view-main');
 var $$ = Dom7;
+var openedDialog = null;
 
 // This is not ever used except as a reference, it might not be up to date (but I try)
 var sample_data = JSON.parse('{ '+
@@ -37,7 +38,7 @@ var sample_data = JSON.parse('{ '+
 '			"name":"1d6+3 spellcasting" '+
 '		} '+
 '	],'+
-'	"settings": {"first_page":"dice", "show_roll_options":true}'+
+'	"settings": {"first_page":"dice", "show_roll_options":true, "show_tooltips":true}'+
 '}');
 ///////
 
@@ -56,13 +57,6 @@ $$("#dice-side").on("formajax:success", function() {
 
 function ProcessClick(ev) {
 	var btn = $$(ev.target);
-	if (btn.hasClass("test")) {
-		console.log($$.isEmptyObject(app.router.previousRoute));
-		console.log(JSON.stringify(app.router.previousRoute) == JSON.stringify("{}"));
-		if (app.router.previousRoute != {}) {
-			app.router.back("/first/");
-		}
-	}
 	if (btn.hasClass("dice"))
 	{
 		var val = btn.text();
@@ -390,8 +384,10 @@ function UpdateSumText() {
 }
 
 function UpdateDiceTitle() {
-	var title = GetRollGeneratedName(save_data.current_roll);
-	$$("#title-results").text(title);
+	if (save_data.current_roll[0].roll_data.dice != undefined) {
+		var title = GetRollGeneratedName(save_data.current_roll);
+		$$("#title-results").text(title);
+	}
 }
 
 function GetRollGeneratedName(roll) {
@@ -515,7 +511,19 @@ function GetIconClassForDice(dice) {
 	return content;
 }
 
-var initial_data = JSON.parse('{"version":4, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true}}');
+function UpdateTooltips() {
+	var tooltips = $$(".icon-tooltip");
+	for (var i = 0; i < tooltips.length; i++) {
+		if (save_data.settings.show_tooltips == true) {
+			$$(tooltips[i]).show();
+		}
+		else {
+			$$(tooltips[i]).hide();
+		}
+	}
+}
+
+var initial_data = JSON.parse('{"version":5, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true, "show_tooltips":true}}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -536,9 +544,14 @@ if ($$("#preset-sortable-list").length != 0) {
 }
 
 function UpdatePresetList() {
+	var routepath = mainView.router.currentRoute.path;
+	var isFirst = false;
+	if (routepath == "/first/" || routepath == undefined) {
+		isFirst = true;
+	}
 	var content = "";
 	$$("#preset-list").text(content);
-	if (save_data.presets.length <= 0) {
+	if (save_data.presets.length <= 0 || !isFirst) {
 		$$(".preset-accordion").hide();
 	}
 	else {
@@ -648,12 +661,19 @@ function PresetSortEvent(ev) {
 	}
 }
 
-function UpdateNav(page) {
-	var routepath = page.route.path;
-	var navback = page.$el.find(".back-nav");
-	var navhome = page.$el.find(".home-nav");
-	var navmore = page.$el.find(".more-nav");
+function UpdateNav(page) {	
+	// IOS
+	var navback = $$(".navbar-next").find(".back-nav");
+	var navhome = $$(".navbar-next").find(".home-nav");
+	var navmore = $$(".navbar-next").find(".more-nav");
+	// Android
+	if (navback.length == 0 && navhome.length == 0 && navmore.length == 0) {
+		navback = page.$el.find(".back-nav");
+		navhome = page.$el.find(".home-nav");
+		navmore = page.$el.find(".more-nav");
+	}
 	
+	var routepath = page.route.path;
 	if (routepath == "/first/" || routepath == undefined) {
 		navback.remove();
 		navmore.remove();
@@ -687,6 +707,7 @@ function callback_save_preset(name) {
 }
 
 app.router.navigate("/first/", {"animate":false, "pushState":false, "history":false});
+UpdateTooltips();
 
 $$(document).on('page:beforein', function (e, page) {
 	UpdateNav(page);
@@ -724,29 +745,6 @@ $$(document).on('page:init', function (e, page) {
 			},
 			destroyOnClose:true,
 		}).open()
-		/*
-		app.dialog.prompt('', 'Preset Name', function (name) {
-			var ok = true;
-			for (var i = 0; i < save_data.presets.length; i++) {
-				var existingpreset = save_data.presets[i].name;
-				if (existingpreset == name) {
-					// confirm dialog run async so I need to stop process here until dialog complete
-					ok = false;
-					app.dialog.confirm(existingpreset, 'Overwrite ?', function () {
-						save_data.presets[i].roll_data = JSON.parse(JSON.stringify(save_data.current_roll));
-						app.form.storeFormData("save.json", save_data);
-					}, function() {
-						ok = false;
-					});
-					break;
-				}
-			}
-			if (ok == true) {
-				save_data.presets.push({"name":name, "roll_data":JSON.parse(JSON.stringify(save_data.current_roll))});
-				app.form.storeFormData("save.json", save_data);
-			}
-		});
-		*/
 	});
 	
 	// Update to html data must be done BEFORE registering to events or they won't work
@@ -769,6 +767,12 @@ $$(document).on('page:init', function (e, page) {
 		var show_page = $$(ev.target).is(':checked');
 		save_data.settings.show_roll_options = show_page;
 		app.form.storeFormData("save.json", save_data);
+	});
+	$$("input[name='option-tooltips'").on("change", function(ev) {
+		var show_tooltips = $$(ev.target).is(':checked');
+		save_data.settings.show_tooltips = show_tooltips;
+		app.form.storeFormData("save.json", save_data);
+		UpdateTooltips();
 	});
 	
 	if ($$("input[name='dice-reroll-max']").length != 0) {
@@ -896,13 +900,27 @@ $$(document).on('page:init', function (e, page) {
 		else {
 			skip_options.removeAttr('checked');
 		}
+		
+		var tooltip_options = $$("input[name='option-tooltips']");
+		if (save_data.settings.show_tooltips == true) {
+			tooltip_options.attr('checked', true);
+		}
+		else {
+			tooltip_options.removeAttr('checked');
+		}
 	}
+	UpdateTooltips();
 });
 
 if (document != undefined) {
 	document.addEventListener('backbutton', function (e) {
-		if (app.router.previousRoute != "/") {
-			app.router.back("/first/");
+		var opened_diag = $$(".dialog");
+		if (opened_diag.length != 0) {
+			app.popup.close(opened_diag);
+		} else {
+			if (!mainView.router.previousRoute.url.includes("index.html")) {
+				app.router.back("/first/");
+			}
 		}
 	});
 }
