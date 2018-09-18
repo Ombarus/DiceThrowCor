@@ -29,5 +29,6 @@
         <icon density="hdpi" src="res/icon/android/004-72.png" />
         <icon density="xhdpi" src="res/icon/android/007-96.png" />
     </platform>
+    <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
     <engine name="android" spec="^7.0.0" />
 </widget>

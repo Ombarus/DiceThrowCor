@@ -1,5 +1,7 @@
 TODO :
-- Did I init my RNG ?
+- shortcut :
+	- Reset shortcut when presets change
+	- reload results page when resume app through shortcut intent.
 - android back button after results page will do weird undefined stuff
 - clear history when we pass by the "home" page. (to avoid android "back" button sending us in circles)
 - app icon
@@ -13,10 +15,6 @@ TODO :
 - settings : color scheme ? (using framework7 themes should be fairly easy ?)
 - translation ? (https://github.com/framework7io/framework7/issues/1115 or https://muut.com/framework7#!/framework7/getting-started:how-to-localizetranslate)
 - if I release for iOs need to add link to "rate this app" for iOS
-- could preset show up as shortcuts ? https://developer.android.com/guide/topics/ui/shortcuts/
-- wish : some kind of help / documentation (maybe in the about) about exactly how each options affect the roll's results
-	- help in the about ?
-	- question mark in the corner of the title bar for each window ?
 other options ?
 	- Drop x lowest
 	- Drop x highest
@@ -35,7 +33,7 @@ Things to document :
 
 :::
 name ideas ?
-	- Dice DM
+	- Dice DM *
 	- Dice Throw
 	- RNG God
 	- Pen&Paper helper
@@ -45,6 +43,11 @@ name ideas ?
 	
 
 DONE :
+- could preset show up as shortcuts ? https://developer.android.com/guide/topics/ui/shortcuts/
+
+
+
+
 - real about page
 - align history icon and numbers better
 - validate account info for google merchant paiement method (deposit)

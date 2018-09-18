@@ -912,7 +912,100 @@ $$(document).on('page:init', function (e, page) {
 	UpdateTooltips();
 });
 
+//////////////////////////////////////////////////////////////////////////////
+// CORDOVA SPECIFIC METHODS (need to include cordova.js)
+//////////////////////////////////////////////////////////////////////////////
+
+function UpdateAndroidShortcuts() {
+	// if cordova is not installed, return
+	if (window.plugins == undefined) {
+		return;
+	}
+	
+	window.plugins.Shortcuts.supportsDynamic(function(supported) { 
+		if (supported) {
+			DoUpdateAndroidShortcuts();
+		}
+	}, function(error) {});
+}
+
+function DoUpdateAndroidShortcuts() {
+	var shortcuts = []
+	for (var i = 0; i < save_data.presets.length; i++) {
+		// android dynamic shortcut only support 5 max
+		if (i > 5) {
+			break;
+		}
+		var preset_data = save_data.presets[i];
+		console.log(preset_data);
+		var shortcut = {
+			id: preset_data.name,
+			shortLabel:  preset_data.name,
+			longLabel: preset_data.name,
+			//iconBitmap: '<Bitmap for the shortcut icon, base64 encoded>',
+			intent: {
+				action: 'android.intent.action.RUN',
+				categories: [
+					'android.intent.category.TEST', // Built-in Android category
+					'PRESETS' // Custom categories are also supported
+				],
+				flags: 67108864, // FLAG_ACTIVITY_CLEAR_TOP
+				data: 'myapp://index.html?preset=' + preset_data.name, // Must be a well-formed URI
+				extras: {
+					'android.intent.extra.SUBJECT': 'Preset Roll', // Built-in Android extra (string)
+					'preset_name': preset_data.name, // Custom extras are also supported (boolean, number and string only)
+				}
+			}
+		}
+		shortcuts.push(shortcut);
+	}
+	
+	window.plugins.Shortcuts.setDynamic(shortcuts, function() {
+		//window.alert('Shortcuts were applied successfully');
+	}, function(error) {
+		//window.alert('Error: ' + error);
+	})
+}
+
+function RunPreset(preset_name) {
+	var preset = null;
+	for (var i = 0; i < save_data.presets.length; i++) {
+		if (save_data.presets[i].name == preset_name) {
+			preset = save_data.presets[i].roll_data;
+			break;
+		}
+	}
+	if (preset != null) {
+		save_data.current_roll = JSON.parse(JSON.stringify(preset));
+		app.router.navigate("/dicestats/");
+	}
+}
+
+// if cordova is not installed, return
 if (document != undefined) {
+	
+	document.addEventListener("deviceready", function() {
+		UpdateAndroidShortcuts();
+		
+		if (window.plugins != undefined) {
+			window.plugins.Shortcuts.getIntent(function(intent) {
+				if (intent.extras != undefined && intent.extras["com.ombarus.dicedm.preset_name"] != undefined) {
+					var preset_name = intent.extras["com.ombarus.dicedm.preset_name"];
+					RunPreset(preset_name);
+				}
+			})
+				
+			window.plugins.Shortcuts.onNewIntent(function(intent) {
+				if (intent.extras != undefined && intent.extras["com.ombarus.dicedm.preset_name"] != undefined) {
+					var preset_name = intent.extras["com.ombarus.dicedm.preset_name"];
+					RunPreset(preset_name);
+				}
+			})
+		}
+		
+	}, false);
+	
+	
 	document.addEventListener('backbutton', function (e) {
 		var opened_diag = $$(".dialog");
 		if (opened_diag.length != 0) {
@@ -924,3 +1017,6 @@ if (document != undefined) {
 		}
 	});
 }
+
+//////////////////////////////////////////////////////////////////////////////
+
