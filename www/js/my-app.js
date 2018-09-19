@@ -7,6 +7,7 @@ var app = new Framework7({
 	pushState: true,
     panel: {
         swipe: "left",
+		leftBreakpoint: 768,
     }
 });
 var mainView = app.views.create('.view-main');
@@ -634,7 +635,7 @@ function UpdateTooltips() {
 	}
 }
 
-var initial_data = JSON.parse('{"version":6, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true, "show_tooltips":true, "sort_results":false}}');
+var initial_data = JSON.parse('{"version":7, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true, "show_tooltips":true, "sort_results":false, "language":"en"}}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -826,6 +827,7 @@ function callback_save_preset(name) {
 
 app.router.navigate("/first/", {"animate":false, "pushState":false, "history":false});
 UpdateTooltips();
+InitLanguage(save_data.settings.language);
 
 $$(document).on('page:beforein', function (e, page) {
 	UpdateNav(page);
