@@ -12,64 +12,101 @@
 	</div>
   
 	<div class="page-content">
-		<div class="block-title">First Page</div>
-		<div class="list inset">
-			<ul>
-				<li>
-					<label class="item-radio item-content">
-						<input type="radio" name="first-page" value="dicetype" checked />
-						<i class="icon icon-radio"></i>
-						<div class="item-inner">
-							<div class="item-title">Dice Type</div>
-						</div>
-					</label>
-				</li>
-				<li>
-					<label class="item-radio item-content">
-						<input type="radio" name="first-page" value="dicecount"/>
-						<i class="icon icon-radio"></i>
-						<div class="item-inner">
-							<div class="item-title">Number of Dices</div>
-						</div>
-					</label>
-				</li>
-			</ul>
-		</div>
 		<div class="list">
-			<ul>
-				<li>
-					<div class="item-content">
-						<div class="item-inner">
-							<div class="item-title">
-								Show Roll Options Page
-								<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Without option page, rolls will be without bonus or re-roll'>info_fill</i>
-								<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Without option page, rolls will be without bonus or re-roll'>info</i>
-							</div>
-							<div class="item-after">
-								<label class="toggle toggle-init">
-									<input name="option-option-page" type="checkbox" checked>
-									<span class="toggle-icon"></span>
-								</label>
+			<div class="list-group">
+				<ul>
+					<li class="list-group-title text-color-blue">First Page</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Choose Home Page</div>
 							</div>
 						</div>
-					</div>
-				</li>
-				<li>
-					<div class="item-content">
-						<div class="item-inner">
-							<div class="item-title">
-								Show Tooltips
-							</div>
-							<div class="item-after">
-								<label class="toggle toggle-init">
-									<input name="option-tooltips" type="checkbox" checked>
-									<span class="toggle-icon"></span>
+						<ul>
+							<li>
+								<label class="item-radio item-content">
+									<input type="radio" name="first-page" value="dicetype" checked />
+									<i class="icon icon-radio"></i>
+									<div class="item-inner">
+										<div class="item-title">Dice Type</div>
+									</div>
 								</label>
+							</li>
+							<li>
+								<label class="item-radio item-content">
+									<input type="radio" name="first-page" value="dicecount"/>
+									<i class="icon icon-radio"></i>
+									<div class="item-inner">
+										<div class="item-title">Number of Dices</div>
+									</div>
+								</label>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="list-group">
+				<ul>
+					<li class="list-group-title text-color-blue">Result Page</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">
+									Sort Results
+								</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input name="option-sort" type="checkbox">
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
 							</div>
 						</div>
-					</div>
-				</li>
-			</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="list-group">
+				<ul>
+					<li class="list-group-title text-color-blue">Options Page</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">
+									Show Roll Options
+									<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Without option page, rolls will be without bonus or re-roll'>info_fill</i>
+									<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Without option page, rolls will be without bonus or re-roll'>info</i>
+								</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input name="option-option-page" type="checkbox" checked>
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="list-group">
+				<ul>
+					<li class="list-group-title text-color-blue">Help</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">
+									Show Tooltips
+								</div>
+								<div class="item-after">
+									<label class="toggle toggle-init">
+										<input name="option-tooltips" type="checkbox" checked>
+										<span class="toggle-icon"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

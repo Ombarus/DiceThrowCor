@@ -1,23 +1,17 @@
 TODO :
-- shortcut :
-	- Reset shortcut when presets change
-	- reload results page when resume app through shortcut intent.
+- cache kept and dropped results to avoid re-calculating all the time (still shouldn't change results array for history and preset purpose)
 - android back button after results page will do weird undefined stuff
 - clear history when we pass by the "home" page. (to avoid android "back" button sending us in circles)
 - app icon
 	- Adaptive Launcher Icons (latest API 26 icons)
 - svg button still slightly deform on larger screen ?
-- option page on tablet is not very pretty (too wide, not enough space between elements ?)
-- in history page, if roll match preset, use preset name ?
+- settings : color scheme ? (using framework7 themes should be fairly easy ?)
+- translation ? (https://github.com/framework7io/framework7/issues/1115 or https://muut.com/framework7#!/framework7/getting-started:how-to-localizetranslate)
 - Should going to historical results get a "back to history" button instead of "home" button ?
 - manage preset could allow rename ? (button on the right and add toggle for sorting that replace rename button ?)
 - find a way to use "back" instead of going /first/ in settings page (because the /first/ might have changed we need to force a reload of the cache and I can't figure out how to do it without trashing the stack)
-- settings : color scheme ? (using framework7 themes should be fairly easy ?)
-- translation ? (https://github.com/framework7io/framework7/issues/1115 or https://muut.com/framework7#!/framework7/getting-started:how-to-localizetranslate)
 - if I release for iOs need to add link to "rate this app" for iOS
 other options ?
-	- Drop x lowest
-	- Drop x highest
 	- Reroll every one
 	- Reroll any number (not only 1s and maxs)
 - Splash (even tough loading is fast) (re-use dice logo ? or Ombarus Dev logo ?)
@@ -43,6 +37,21 @@ name ideas ?
 	
 
 DONE :
+- option page on tablet is not very pretty (too wide, not enough space between elements ?)
+- Setting => sort result.
+- Drop x lowest
+- Drop x highest
+- options page. Reroll "max" should say reroll "6" or reroll "4" etc.
+- history should be displayed newest first (not last)
+- in history page, if roll match preset, use preset name ?
+- dicestats title use preset name if match preset
+- shortcut :
+	- Reset shortcut when presets change
+	- reload results page when resume app through shortcut intent.
+
+
+
+
 - could preset show up as shortcuts ? https://developer.android.com/guide/topics/ui/shortcuts/
 
 

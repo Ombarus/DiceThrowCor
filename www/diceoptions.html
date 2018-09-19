@@ -42,70 +42,121 @@
 	</div>
   
 	<div class="page-content">
-		<div class="list" style="margin-left:10%;margin-right:10%">
+		<div class="list no-hairlines">
 			<form id="dice-options" action="#" method="GET" class="form-ajax-submit">
 				<ul>
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
-								<div class="item-title">
-									Reroll Max
-									<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Reroll max will sum the final total<br/> (Shadowrun style)'>info_fill</i>
-									<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Reroll max will sum the final total<br/> (Shadowrun style)'>info</i>
-								</div>
-								<div class="item-after">
-									<label class="toggle toggle-init">
-										<input name="dice-reroll-max" type="checkbox">
-										<span class="toggle-icon"></span>
-									</label>
-								</div>
+								<div class="item-title text-color-blue">Reroll</div>
 							</div>
 						</div>
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">
+											<span class="reroll-max-title">Reroll Max</span>
+											<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Reroll max will sum the final total<br/> (Shadowrun style)'>info_fill</i>
+											<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Reroll max will sum the final total<br/> (Shadowrun style)'>info</i>
+										</div>
+										<div class="item-after">
+											<label class="toggle toggle-init">
+												<input name="dice-reroll-max" type="checkbox">
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">
+											Reroll 1
+											<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Reroll 1s will only reroll once'>info_fill</i>
+											<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Reroll 1s will only reroll once'>info</i>
+										</div>
+										<div class="item-after">
+											<label class="toggle toggle-init">
+												<input name="dice-reroll-min" type="checkbox">
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
-								<div class="item-title">
-									Reroll 1
-									<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Reroll 1s will only reroll once'>info_fill</i>
-									<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Reroll 1s will only reroll once'>info</i>
-								</div>
-								<div class="item-after">
-									<label class="toggle toggle-init">
-										<input name="dice-reroll-min" type="checkbox">
-										<span class="toggle-icon"></span>
-									</label>
-								</div>
+								<div class="item-title text-color-blue">Bonus / Malus</div>
 							</div>
 						</div>
+						<ul>
+							<li class="item-content item-input">
+								<div class="item-inner">
+									<div id="dice-bonus-label" class="item-title item-label">
+										+0 To Each Roll
+										<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Rolls can never be below 1'>info_fill</i>
+										<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Rolls can never be below 1'>info</i>
+									</div>
+									<div class="item-input-wrap">
+										<div id="dice-bonus-slider" class="range-slider range-slider-init" data-label="true">
+											<input name="dice-bonus" type="range" value="0" min="-10" max="10" step="1">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input">
+								<div class="item-inner">
+									<div id="roll-bonus-label" class="item-title item-label">
+										+0 To Final Sum
+										<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Sum will be clamped to 1'>info_fill</i>
+										<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Sum will be clamped to 1'>info</i>
+									</div>
+									<div class="item-input-wrap">
+										<div id="roll-bonus-slider" class="range-slider range-slider-init" data-label="true">
+											<input name="roll-bonus" type="range" value="0" min="-10" max="10" step="1">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</li>
-					<li class="item-content item-input">
-						<div class="item-inner">
-							<div id="dice-bonus-label" class="item-title item-label">
-								+0 To Each Roll
-								<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Rolls can never be below 1'>info_fill</i>
-								<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Rolls can never be below 1'>info</i>
-							</div>
-							<div class="item-input-wrap">
-								<div id="dice-bonus-slider" class="range-slider range-slider-init" data-label="true">
-									<input name="dice-bonus" type="range" value="0" min="-10" max="10" step="1">
-								</div>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title text-color-blue">Drop Dices</div>
 							</div>
 						</div>
-					</li>
-					<li class="item-content item-input">
-						<div class="item-inner">
-							<div id="roll-bonus-label" class="item-title item-label">
-								+0 To Final Sum
-								<i class="icon f7-icons color-blue icon-tooltip if-ios tooltip-init" style="font-size: 20px" data-tooltip='Sum will be clamped to 1'>info_fill</i>
-								<i class="icon material-icons color-blue icon-tooltip if-md tooltip-init" style="font-size: 20px" data-tooltip='Sum will be clamped to 1'>info</i>
-							</div>
-							<div class="item-input-wrap">
-								<div id="roll-bonus-slider" class="range-slider range-slider-init" data-label="true">
-									<input name="roll-bonus" type="range" value="0" min="-10" max="10" step="1">
+						<ul>
+							<li class="item-content item-input drop-li">
+								<div class="item-inner">
+									<div id="roll-drophigh-label" class="item-title item-label">
+										Drop 0 Highest Roll
+									</div>
+									<div class="item-input-wrap">
+										<div id="roll-drophigh-slider" class="range-slider range-slider-init" data-label="true">
+											<input name="drophigh" type="range" value="0" min="0" max="10" step="1">
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
+							</li>
+							<li class="item-content item-input drop-li">
+								<div class="item-inner">
+									<div id="roll-droplow-label" class="item-title item-label">
+										Drop 0 Lowest Roll
+									</div>
+									<div class="item-input-wrap">
+										<div id="roll-droplow-slider" class="range-slider range-slider-init" data-label="true">
+											<input name="droplow" type="range" value="0" min="0" max="10" step="1">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</form>

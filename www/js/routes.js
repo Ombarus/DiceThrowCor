@@ -40,6 +40,8 @@ var routes = [
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.min = false;
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_dice = 0;
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_roll = 0;
+					save_data.current_roll[save_data.current_roll.length-1].roll_data.drop_high = 0;
+					save_data.current_roll[save_data.current_roll.length-1].roll_data.drop_low = 0;
 					
 					resolve({url: 'dicestats.html'})
 				}
@@ -62,6 +64,8 @@ var routes = [
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.min = false;
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_dice = 0;
 					save_data.current_roll[save_data.current_roll.length-1].roll_data.bonus_roll = 0;
+					save_data.current_roll[save_data.current_roll.length-1].roll_data.drop_high = 0;
+					save_data.current_roll[save_data.current_roll.length-1].roll_data.drop_low = 0;
 					
 					resolve({url: 'dicestats.html'})
 				}

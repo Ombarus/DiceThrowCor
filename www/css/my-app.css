@@ -79,6 +79,42 @@
 .more-nav {}
 .home-nav {}
 .preset-accordion {}
+.reroll-max-title {}
+.drop-li {}
+
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  -webkit-transform:rotate(-40deg);
+  -moz-transform:rotate(-40deg);
+  -ms-transform:rotate(-40deg);
+  -o-transform:rotate(-40deg);
+  transform:rotate(-40deg);
+}
+.strikethrough:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  -webkit-transform:rotate(40deg);
+  -moz-transform:rotate(40deg);
+  -ms-transform:rotate(40deg);
+  -o-transform:rotate(40deg);
+  transform:rotate(40deg);
+}
 
 .panel-header {
 	margin:0px;
