@@ -86,6 +86,9 @@ function MatchWithPreset(roll_data) {
 
 function ProcessClick(ev) {
 	var btn = $$(ev.target);
+	if (btn.hasClass("hback")) {
+		ProcessHardwareBack();
+	}
 	if (btn.hasClass("dice"))
 	{
 		var val = btn.text();
@@ -161,7 +164,7 @@ function ProcessClick(ev) {
 		app.router.navigate("/dicestats/");
 	}
 	if (btn.hasClass("doeraseallhistory")) {
-		app.dialog.confirm('This will clear all past rolls', 'Are you sure ?', function () {
+		app.dialog.confirm(GetLocalizedString('This will clear all past rolls'), GetLocalizedString('Are you sure ?'), function () {
 			save_data.history = JSON.parse('[]');
 			app.form.storeFormData("save.json", save_data);
 			UpdateHistoryList();
@@ -173,7 +176,7 @@ function ProcessClick(ev) {
 	if (btn.hasClass("doerasehistory")) {
 		var index = parseInt(btn.parents(".item-content").find("#history-index").val());
 		var name = btn.parents(".item-content").find(".item-title").text();
-		app.dialog.confirm('Really delete ?', name, function () {
+		app.dialog.confirm(GetLocalizedString('Really delete ?'), name, function () {
 			save_data.history.splice(index, 1);
 			app.form.storeFormData("save.json", save_data);
 			UpdateHistoryList();
@@ -184,7 +187,7 @@ function ProcessClick(ev) {
 	}
 	if (btn.hasClass("open-confirm"))	 {
 		var presetname = $$(ev.target).parents(".item-content").find(".item-inner").text();
-		app.dialog.confirm('Delete Preset ?', presetname, function (name) {
+		app.dialog.confirm(GetLocalizedString('Delete Preset ?'), presetname, function (name) {
 			for (var i = 0; i < save_data.presets.length; i++) {
 				if (save_data.presets[i].name == presetname) {
 					save_data.presets.splice(i, 1);
@@ -451,7 +454,7 @@ function GetThresholdCount(threshold) {
 }
 
 function UpdateSumText() {
-	sumtext = "Sum";
+	sumtext = GetLocalizedString("Sum");
 	var i = 0;
 	var hasbonus = false;
 	for (i = 0; i < save_data.current_roll.length; i++)
@@ -492,7 +495,7 @@ function UpdateDiceTitle() {
 function GetRollGeneratedName(roll) {
 	var title = "";
 	if (roll.length > 1) {
-		title = "Multiple Roll";
+		title = GetLocalizedString("Multiple Roll");
 	}
 	else {
 		var dicetype = roll[0].roll_data.dice;
@@ -545,7 +548,7 @@ function UpdateOptionsTitle() {
 	
 	title += dicecount + "D" + dicetype;	
 	
-	title += "'s Options";
+	title += GetLocalizedString("'s Options");
 	$$("#title-options").text(title);
 }
 
@@ -635,7 +638,16 @@ function UpdateTooltips() {
 	}
 }
 
-var initial_data = JSON.parse('{"version":7, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true, "show_tooltips":true, "sort_results":false, "language":"en"}}');
+function UpdateTheme() {
+	if (save_data.settings.dark_theme == true) {
+		$$("body").addClass("theme-dark");
+	}
+	else {
+		$$("body").removeClass("theme-dark");
+	}
+}
+
+var initial_data = JSON.parse('{"version":9, "current_roll":[{"roll_data":{}, "results":[]}], "history":[], "presets":[], "settings":{"first_page":"dicetype", "show_roll_options":true, "show_tooltips":true, "sort_results":false, "language":"", "dark_theme":false}}');
 save_data = app.form.getFormData("save.json");
 if (save_data == null || save_data.version == undefined || save_data.version != initial_data.version)
 {
@@ -688,7 +700,7 @@ function UpdateSortablePresetList() {
 	var content = "";
 	$$("#preset-sortable-list").text(content);
 	if (save_data.presets.length <= 0) {
-		content = '<div class="block-title">You have no Preset</div>';
+		content = '<div class="block-title">' + GetLocalizedString("You have no Preset") + '</div>';
 		$$("#preset-sortable-list").append(content); // text(content) will escape html tags, use append()
 		return;
 	}
@@ -718,7 +730,7 @@ function UpdateHistoryList() {
 	$$("#history-list").text(content);
 	
 	if (save_data.history.length <= 0) {
-		content = '<div class="block-title">History is Empty</div>';
+		content = '<div class="block-title">' + GetLocalizedString("History is Empty") + '</div>';
 		$$("#history-list").append(content); // text(content) will escape html tags, use append()
 		return;
 	}
@@ -808,7 +820,7 @@ function callback_save_preset(name) {
 		if (existingpreset == name) {
 			// confirm dialog run async so I need to stop process here until dialog complete
 			ok = false;
-			app.dialog.confirm(existingpreset, 'Overwrite ?', function () {
+			app.dialog.confirm(existingpreset, GetLocalizedString('Overwrite ?'), function () {
 				save_data.presets[i].roll_data = JSON.parse(JSON.stringify(save_data.current_roll));
 				app.form.storeFormData("save.json", save_data);
 				UpdateAndroidShortcuts();
@@ -827,6 +839,7 @@ function callback_save_preset(name) {
 
 app.router.navigate("/first/", {"animate":false, "pushState":false, "history":false});
 UpdateTooltips();
+UpdateTheme();
 InitLanguage(save_data.settings.language);
 
 $$(document).on('page:beforein', function (e, page) {
@@ -845,7 +858,7 @@ $$(document).on('page:init', function (e, page) {
 	isFromIntent = false;
 	$$('.open-prompt').on('click', function () {
 		app.dialog.create({
-			title: 'Preset Name',
+			title: GetLocalizedString('Preset Name'),
 			text: '',
 			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input input-focused input-with-value" placeholder="Unique Name" value="' + GetRollGeneratedName(save_data.current_roll) + '"><span class="input-clear-button"></span></div></div>',
 			buttons: [
@@ -895,6 +908,12 @@ $$(document).on('page:init', function (e, page) {
 		app.form.storeFormData("save.json", save_data);
 		UpdateTooltips();
 	});
+	$$("input[name='option-theme'").on("change", function(ev) {
+		var dark_theme = $$(ev.target).is(':checked');
+		save_data.settings.dark_theme = dark_theme;
+		app.form.storeFormData("save.json", save_data);
+		UpdateTheme();
+	});
 	$$("input[name='option-sort'").on("change", function(ev) {
 		var sort_res = $$(ev.target).is(':checked');
 		save_data.settings.sort_results = sort_res;
@@ -932,7 +951,7 @@ $$(document).on('page:init', function (e, page) {
 		app.swiper.get($$('.tabs-swipeable-wrap')).allowTouchMove = true;
 	});
 	$$('#threshold-slider').on('range:change', function(event, range) {
-		$$("#stats-threshold-val").text("Above Threshold of " + range.value);
+		$$("#stats-threshold-val").text(GetLocalizedString("Above Threshold of ") + range.value);
 		$$("#stats-threshold-count").text(GetThresholdCount(range.value));
 	});
 	$$('#dice-bonus-slider').on('range:change', function(event, range) {
@@ -940,7 +959,7 @@ $$(document).on('page:init', function (e, page) {
 		if (parseInt(range.value) >= 0) {
 			textval += "+";
 		}
-		textval += range.value + " To Each Roll";
+		textval += range.value + GetLocalizedString(" To Each Roll");
 		$$("#dice-bonus-label").text(textval);
 	});
 	$$('#roll-bonus-slider').on('range:change', function(event, range) {
@@ -948,7 +967,7 @@ $$(document).on('page:init', function (e, page) {
 		if (parseInt(range.value) >= 0) {
 			textval += "+";
 		}
-		textval += range.value + " To Final Sum";
+		textval += range.value + GetLocalizedString(" To Final Sum");
 		$$("#roll-bonus-label").text(textval);
 	});
 	
@@ -965,12 +984,12 @@ $$(document).on('page:init', function (e, page) {
 	}
 	$$('#roll-drophigh-slider').on('range:change', function(event, range) {
 		var textval = "";
-		textval = "Drop " + range.value + " Highest Roll";
+		textval = GetLocalizedString("Drop ") + range.value + GetLocalizedString(" Highest Roll");
 		$$("#roll-drophigh-label").text(textval);
 	});
 	$$('#roll-droplow-slider').on('range:change', function(event, range) {
 		var textval = "";
-		textval = "Drop " + range.value + " Lowest Roll";
+		textval = GetLocalizedString("Drop ") + range.value + GetLocalizedString(" Lowest Roll");
 		$$("#roll-droplow-label").text(textval);
 	});
 	
@@ -1021,7 +1040,7 @@ $$(document).on('page:init', function (e, page) {
 		$$("#stats-miss").text(GetMiss());
 		app.range.setValue($$("#stats-threshold-range"), (parseInt(max/2)));
 		$$("#stats-threshold-range")[0].value = parseInt(max/2);
-		$$("#stats-threshold-val").text("Above Threshold of " + $$("#stats-threshold-range")[0].value);
+		$$("#stats-threshold-val").text(GetLocalizedString("Above Threshold of ") + $$("#stats-threshold-range")[0].value);
 		$$("#stats-threshold-range")[0].max = max;
 		$$("#stats-threshold-count").text(GetThresholdCount($$("#stats-threshold-range")[0].value));
 		
@@ -1031,7 +1050,7 @@ $$(document).on('page:init', function (e, page) {
 	
 	if ($$(".reroll-max-title").length != 0) {
 		console.log(save_data.current_roll[save_data.current_roll.length-1]);
-		$$(".reroll-max-title").text("Reroll " + save_data.current_roll[save_data.current_roll.length-1].roll_data.dice + "s");
+		$$(".reroll-max-title").text(GetLocalizedString("Reroll ") + save_data.current_roll[save_data.current_roll.length-1].roll_data.dice + GetLocalizedString("s"));
 	}
 	
 	var first_page_settings = $$("input[name='first-page']");
@@ -1061,6 +1080,14 @@ $$(document).on('page:init', function (e, page) {
 		}
 		else {
 			tooltip_options.removeAttr('checked');
+		}
+		
+		var theme_options = $$("input[name='option-theme']");
+		if (save_data.settings.dark_theme == true) {
+			theme_options.attr('checked', true);
+		}
+		else {
+			theme_options.removeAttr('checked');
 		}
 		
 		var sort_option = $$("input[name='option-sort']");
@@ -1179,15 +1206,26 @@ if (document != undefined) {
 	}, false);
 	
 	
-	document.addEventListener('backbutton', function (e) {
+	function ProcessHardwareBack() {
 		var opened_diag = $$(".dialog");
+		console.log("bleh");
 		if (opened_diag.length != 0) {
 			app.popup.close(opened_diag);
 		} else {
-			if (!mainView.router.previousRoute.url.includes("index.html")) {
+			console.log("prev : " + mainView.router.previousRoute.url + ", cur : " + mainView.router.currentRoute.url);
+			if (mainView.router.currentRoute.url.includes("dicestats")) {
+				app.router.navigate("/first/");
+				mainView.router.clearPreviousHistory();
+			}
+			else if (!mainView.router.previousRoute.url.includes("index.html") && !mainView.router.currentRoute.url.includes("first")) {
+				console.log("router.back");
 				app.router.back("/first/");
 			}
 		}
+	}
+	
+	document.addEventListener('backbutton', function (e) {
+		ProcessHardwareBack();
 	});
 }
 

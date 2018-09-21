@@ -6,6 +6,8 @@ function SetLanguage(new_lang) {
 	}
 	
 	current_language = new_lang;
+	save_data.settings.language = new_lang;
+	app.form.storeFormData("save.json", save_data);
 	UpdateLanguage();
 }
 
@@ -19,8 +21,23 @@ function UpdateLanguage() {
 		}
 		$$(el).text(GetLocalizedString(orig));
 	});
-	// iterate on "placeholder" props too
-	// iterate on "data-tooltip" props too
+	$$("[placeholder]").each(function(index, el) {
+		var orig = $$(el).attr("orig");
+		if (orig == null) {
+			$$(el).attr("orig", $$(el).attr("placeholder"));
+			orig = $$(el).attr("placeholder");
+		}
+		$$(el).attr("placeholder", GetLocalizedString(orig));
+	});
+	$$("[data-tooltip]").each(function(index, el) {
+		var orig = $$(el).attr("orig");
+		if (orig == null) {
+			$$(el).attr("orig", $$(el).attr("data-tooltip"));
+			orig = $$(el).attr("data-tooltip");
+		}
+		app.tooltip.setText($$(el), GetLocalizedString(orig));
+		$$(el).attr("data-tooltip", GetLocalizedString(orig));
+	});
 }
 
 function GetLocalizedString(key) {
@@ -33,13 +50,17 @@ function GetLocalizedString(key) {
 }
 
 function InitLanguage(cur_lang) {
+	if (window.Intl && typeof window.Intl === 'object' && cur_lang == "") {
+		cur_lang = navigator.language.split("-")[0].toLowerCase();
+	} else if (cur_lang == "") {
+		cur_lang = "en";
+	}
+	
 	SetLanguage(cur_lang);
 	$$(document).on('page:init', function (e, page) {
 		UpdateLanguage();
 		$$("input[name='lang']").on("change", function(ev) {
-			save_data.settings.language = ev.target.value;
-			app.form.storeFormData("save.json", save_data);
-			SetLanguage(save_data.settings.language);
+			SetLanguage(ev.target.value);
 		});
 		var language_settings = $$("input[name='lang']");
 		if (language_settings.length !=0) {
