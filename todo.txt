@@ -1,4 +1,5 @@
 TODO :
+- add home button in side bar
 - finish translation
 	- translate missing strings
 - cache kept and dropped results to avoid re-calculating all the time (still shouldn't change results array for history and preset purpose)
@@ -53,6 +54,43 @@ name ideas ?
 	- Dice Helper
 	- RPG Dice
 	- Quick Dice
+	
+:::
+short description : 
+A full-feature yet easy to use dice throwing app for all your Tabletop needs.
+
+Long desc :
+All the most common D&D dices at the touch of a button. This app is made to be as lightweight as possible while allowing any kind of random number generation and common Pen & Paper dice throwing options.
+
+Features include :
+<ul>
+<li>Unlimited number of dice throws at the same time</li>
+<li>Any type of dice (including impossible configuration like 431 sided-dices)</li>
+<li>History of past rolls</li>
+<li>Re-rolls 1s</li>
+<li>Re-rolls and sum criticals (Shadowrun Style)</li>
+<li>Drop lowest or highest dice(s)</li>
+<li>Add bonus or malus to each dice or to the final sum</li>
+<li>Save presets for even faster throws</li>
+<li>Change to a dark theme</li>
+<li>Sort final dice results</li>
+<li>Choose which page you start you roll on</li>
+<li>Powerful custom Random Number Generator</li>
+<li>No ads or weird permissions</li>
+</ul>
+
+Result page displays all your dice throws but also feature many pre-calculated results. 
+<ul>
+<li>Sum</li>
+<li>Average</li>
+<li>Highest roll</li>
+<li>Lowest roll</li>
+<li>Number of critical hit</li>
+<li>Number of critical miss</li>
+<li>How many dice were above an arbitrary threshold.</li>
+</ul>
+
+Don't trust physic based dice rolling Apps. Physic on devices is deterministic but this app uses a Mersenne Twister implementation to be the closest to pure random results as possible on a computer.
 	
 
 DONE :
