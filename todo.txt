@@ -1,25 +1,43 @@
 TODO :
-- add home button in side bar
+- Start looking into ads
+- Start looking into IAP
+- https://build.phonegap.com/apps/3314481/builds
+- Close keyboard on "enter" key
+- iOS screenshot
+	- required 1242x2208 (portrait and/or landscape), 2048x2732
+		- 6.5" : 1242x2688
+		- 5.5" : 1242x2208
+		- ipad : 2048x2732 or 2732x2048
+	- optional but needed ? 1242x2688, 
+	- (https://splitmetrics.com/blog/app-store-screenshots-guide/)
+		- 5 images
+		- iPhone 3+4 (640x960)
+		- iPhone 5 (640x1136)
+		- iPhone 6/7/8 (750x1334)
+		- *****iPhone 6/7/8+ (1242x2208)
+		- iPhone X (1125x2436)
+		- iPad (1536x2048)
+		- iPad Pro (2048x2732)
+		- Apple Watch (312x390)
+		- translate screenshots ?
+- iOS privacy policy
+- investigate language detection on ios
+- try to run on simulator in vbox to test icons and language
+- publicity ideas
+	- Post some ads/msg on D&D forums
+		- http://www.enworld.org/forum/search.php?searchid=1674429
+		- https://boardgamegeek.com/thread/859661/whats-best-dice-roller-app-android
+	- Make reddit post(s) on D&D, RPG, tabletop subreddit
+		- https://www.reddit.com/r/rpg/comments/7vwf9c/what_is_the_best_most_complete_dice_roller_app/
+		- https://www.reddit.com/r/DnD/comments/2oswpz/good_apps_for_dnd_any_aesthetically_pleasing_dice/
+	- Send a personal message to Tycho if they'd be interested to use it in their d&d podcasts ?
+	- Could I get some content producer to publish something ?
+		- https://www.inverse.com/article/20303-tabletop-rpg-apps-roll20-obsidian-portal-dungeons-and-dragons
+- website
+	- https://ombarus.com seemt to generate an "invalid certificate" error ?
 - finish translation
 	- translate missing strings
 - cache kept and dropped results to avoid re-calculating all the time (still shouldn't change results array for history and preset purpose)
-- app icon
-	- Adaptive Launcher Icons (latest API 26 icons)
-	- *Promo graphic
-		- 180x120
-	- *feature graphic
-		- 1024x500
-	- *High-res icon
-		- 512x512
-	- Youtube video ?
-	- 8 screenshots
-		- 1 x 7 inch
-		- 1 x 10 inch
-		- JPEG or 24-bit PNG (no alpha)
-			- min 320px
-			- max 3840px
-			- 3 landscape screenshot to show groups of recommended games
-			- 16:9 aspect ratio (landscape)
 - Can I make Preset more obvious ? (friend tried the game and didn't see them)
 - svg button still slightly deform on larger screen ?
 - Should going to historical results get a "back to history" button instead of "home" button ?
@@ -57,43 +75,74 @@ name ideas ?
 	
 :::
 short description : 
-A full-feature yet easy to use dice throwing app for all your Tabletop needs.
+A full-featured yet easy to use dice throwing app for all your Tabletop needs.
 
 Long desc :
 All the most common D&D dices at the touch of a button. This app is made to be as lightweight as possible while allowing any kind of random number generation and common Pen & Paper dice throwing options.
 
 Features include :
-<ul>
-<li>Unlimited number of dice throws at the same time</li>
-<li>Any type of dice (including impossible configuration like 431 sided-dices)</li>
-<li>History of past rolls</li>
-<li>Re-rolls 1s</li>
-<li>Re-rolls and sum criticals (Shadowrun Style)</li>
-<li>Drop lowest or highest dice(s)</li>
-<li>Add bonus or malus to each dice or to the final sum</li>
-<li>Save presets for even faster throws</li>
-<li>Change to a dark theme</li>
-<li>Sort final dice results</li>
-<li>Choose which page you start you roll on</li>
-<li>Powerful custom Random Number Generator</li>
-<li>No ads or weird permissions</li>
-</ul>
+
+• Unlimited number of dice throws at the same time
+• Any type of dice (including impossible configuration like 431 sided-dices)
+• History of past rolls
+• Re-roll 1
+• Re-roll and sum criticals (Shadowrun Style)
+• Drop lowest or highest dice(s)
+• Add bonus or malus to each dice or to the final sum
+• Save presets for even faster throws
+• Change to a dark theme
+• Sort final dice results
+• Choose which page you start you roll on
+• Powerful custom Random Number Generator
+• No ads or weird permissions
 
 Result page displays all your dice throws but also feature many pre-calculated results. 
-<ul>
-<li>Sum</li>
-<li>Average</li>
-<li>Highest roll</li>
-<li>Lowest roll</li>
-<li>Number of critical hit</li>
-<li>Number of critical miss</li>
-<li>How many dice were above an arbitrary threshold.</li>
-</ul>
 
-Don't trust physic based dice rolling Apps. Physic on devices is deterministic but this app uses a Mersenne Twister implementation to be the closest to pure random results as possible on a computer.
-	
+• Sum
+• Average
+• Highest roll
+• Lowest roll
+• Number of critical hit
+• Number of critical miss
+• How many dice were above an arbitrary threshold.
 
 DONE :
+- Setup tax ios
+	- https://www.iosinsight.com/tax-setup-non-us-resident/
+		- no need for TIN, use canada SSN
+		- 2. fill out a W-8BEN-E form
+		- W-8BEN is for individuals
+- Privacy policy ombarus.com
+- add Sam UDID & send him a build
+- iOS icons design
+	- square ?
+	- main icon 180x180, 120x120, 167x167, 152x152, 1024x1024
+	- spotlight 120x120, 80x80
+	- settings 87x87, 58x58
+	- notif 60x60, 40x40
+- ios launch screen (portrait & landscape?)
+	- https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
+		- (single launch image) the image should be square
+		- the image should be large enough to fit on an iPad Pro 12.9": 2732x2732
+		- anything important should fit within the center
+		-  <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
+	- 2048x2732, 1668x2224, 1536x2048, 1242x2688, 1125x2436, 828x1792, 1125x2208, 750x1334, 1242x2208, 750x1334, 640x1136
+	
+- have someone test iOS build.
+	- Works
+	- icon is cordova default
+	- language is set to english
+- Investigate building iOS version
+	- https://www.virtualbox.org/wiki/Downloads virtualized macOS ? ("technically" against rules)
+	- https://portal.macincloud.com/select/#/plans rent-a-mac (1$ per hour ?)
+	- https://build.phonegap.com/ PhoneGap builds all 3 platform for you (android, ios, windows8) (free for small, public apps ?)
+- Historic is broken
+- add home button in side bar
+	- fix some links (bottom bitbucket, facebook, etc)
+	- fix some link (in dicedm project links point to wrong place)
+
+
+
 - settings : color scheme ? (using framework7 themes should be fairly easy ?)
 - clear history when we pass by the "home" page. (to avoid android "back" button sending us in circles)
 	- Actually I "locked" the first page and I clear history when going back from dicestats

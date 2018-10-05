@@ -12,12 +12,14 @@
     "dependencies": {
         "cordova-android": "^7.0.0",
         "cordova-plugin-shortcuts-android": "^0.1.0",
+        "cordova-plugin-splashscreen": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
         "cordova-plugin-whitelist": "^1.3.3"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-shortcuts-android": {}
+            "cordova-plugin-shortcuts-android": {},
+            "cordova-plugin-splashscreen": {}
         },
         "platforms": [
             "android"
