@@ -1,35 +1,29 @@
 TODO :
+- Fix iOS issues found by my lone tester
+	- roll history full of "undefined"
+	- erase history buttons (both all and one-by-one) doesn't work
+	- investigate language detection on ios
 - Start looking into ads
 - Start looking into IAP
 - https://build.phonegap.com/apps/3314481/builds
 - Close keyboard on "enter" key
-- iOS screenshot
-	- required 1242x2208 (portrait and/or landscape), 2048x2732
-		- 6.5" : 1242x2688
-		- 5.5" : 1242x2208
-		- ipad : 2048x2732 or 2732x2048
-	- optional but needed ? 1242x2688, 
-	- (https://splitmetrics.com/blog/app-store-screenshots-guide/)
-		- 5 images
-		- iPhone 3+4 (640x960)
-		- iPhone 5 (640x1136)
-		- iPhone 6/7/8 (750x1334)
-		- *****iPhone 6/7/8+ (1242x2208)
-		- iPhone X (1125x2436)
-		- iPad (1536x2048)
-		- iPad Pro (2048x2732)
-		- Apple Watch (312x390)
-		- translate screenshots ?
 - iOS privacy policy
-- investigate language detection on ios
 - try to run on simulator in vbox to test icons and language
 - publicity ideas
+	- concurant
+		- dndice
+		- critdice
 	- Post some ads/msg on D&D forums
 		- http://www.enworld.org/forum/search.php?searchid=1674429
 		- https://boardgamegeek.com/thread/859661/whats-best-dice-roller-app-android
+		- http://www.giantitp.com/forums/showthread.php?427214-Best-Dice-Rolling-Apps-for-mobile
+		- https://www.applevis.com/forum/ios-gaming/does-someone-know-good-dd-dice-roller-app
 	- Make reddit post(s) on D&D, RPG, tabletop subreddit
 		- https://www.reddit.com/r/rpg/comments/7vwf9c/what_is_the_best_most_complete_dice_roller_app/
+		- https://www.reddit.com/r/rpg/comments/910zf2/what_is_the_best_dice_rolling_app_out_there/
 		- https://www.reddit.com/r/DnD/comments/2oswpz/good_apps_for_dnd_any_aesthetically_pleasing_dice/
+		- https://www.reddit.com/r/apps/
+		- https://www.reddit.com/r/androidapps/wiki/weeklysuggestions
 	- Send a personal message to Tycho if they'd be interested to use it in their d&d podcasts ?
 	- Could I get some content producer to publish something ?
 		- https://www.inverse.com/article/20303-tabletop-rpg-apps-roll20-obsidian-portal-dungeons-and-dragons
@@ -107,6 +101,35 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • How many dice were above an arbitrary threshold.
 
 DONE :
+- throw don't work (!!)
+! First throw worked then everything went to hell.
+* Apparently I was never using the xhrCache until Safari. When the page is fetched from cache. page:init is triggered before "click" events which competly messes up my logic.
+* I'm not sure how I could fix the logic except doing everything in page:init and passing parameters in the href. For now disabling cache seems to work.
+- custom hit doesn't do anything (maybe ? there was a bug when going back but otherwise work)
+- Left-to-right swipe empty page ?
+- (x) button in input boxes not working
+- When going back two pages in iOS both home and back icons are visible
+- iOS screenshot
+	- required 1242x2208 (portrait and/or landscape), 2048x2732
+		- 6.5" : 1242x2688
+		- 5.5" : 1242x2208
+		- ipad : 2048x2732 or 2732x2048
+	- optional but needed ? 1242x2688, 
+	- (https://splitmetrics.com/blog/app-store-screenshots-guide/)
+		- 5 images
+		- iPhone 3+4 (640x960)
+		- iPhone 5 (640x1136)
+		- iPhone 6/7/8 (750x1334)
+		- *****iPhone 6/7/8+ (1242x2208)
+		- iPhone X (1125x2436)
+		- iPad (1536x2048)
+		- iPad Pro (2048x2732)
+		- Apple Watch (312x390)
+		- translate screenshots ?
+
+
+
+- Warning, Missing App Store Icon. must include a 1024x1024 app store icon in png format. asset catalog or via app store connect.
 - Setup tax ios
 	- https://www.iosinsight.com/tax-setup-non-us-resident/
 		- no need for TIN, use canada SSN
