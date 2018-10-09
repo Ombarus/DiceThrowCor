@@ -6,7 +6,6 @@ TODO :
 - Start looking into ads
 - Start looking into IAP
 - https://build.phonegap.com/apps/3314481/builds
-- Close keyboard on "enter" key
 - iOS privacy policy
 - try to run on simulator in vbox to test icons and language
 - publicity ideas
@@ -101,6 +100,11 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • How many dice were above an arbitrary threshold.
 
 DONE :
+- Close keyboard on "enter" key
+
+
+
+
 - throw don't work (!!)
 ! First throw worked then everything went to hell.
 * Apparently I was never using the xhrCache until Safari. When the page is fetched from cache. page:init is triggered before "click" events which competly messes up my logic.
