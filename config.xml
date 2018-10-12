@@ -39,7 +39,7 @@
         <icon height="50" src="res/ios/icon-50.png" width="50" />
         <icon height="100" src="res/ios/icon-100.png" width="100" />
         <icon height="167" src="res/ios/icon-167.png" width="167" />
-		<splash src="res/screen/ios/Default@2x~universal~anyany.png" />
+        <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
         <preference name="FadeSplashScreenDuration" value="0" />
         <preference name="SplashScreenDelay" value="0" />
     </platform>
@@ -52,5 +52,5 @@
     </platform>
     <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
-    <engine name="android" spec="^7.0.0" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
