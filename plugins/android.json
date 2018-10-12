@@ -7,12 +7,16 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.ombarus.dicethrow"
-    },
     "cordova-plugin-shortcuts-android": {
+      "PACKAGE_NAME": "com.ombarus.dicedm"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.ombarus.dicedm"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ombarus.dicedm"
+    }
+  }
 }
