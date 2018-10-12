@@ -1,4 +1,6 @@
 /platforms/android/*
+/node_modules
+/plugins
 /logs.txt
 /secret
-
+*.png~

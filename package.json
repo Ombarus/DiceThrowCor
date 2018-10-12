@@ -10,16 +10,25 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
-        "cordova-android": "^7.0.0",
+        "cordova-admob-sdk": "~0.13.1",
+        "cordova-android": "^7.1.1",
+        "cordova-plugin-admob-free": "0.21.0",
         "cordova-plugin-shortcuts-android": "^0.1.0",
         "cordova-plugin-splashscreen": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
-        "cordova-plugin-whitelist": "^1.3.3"
+        "cordova-plugin-whitelist": "^1.3.3",
+        "cordova-promise-polyfill": "0.0.2"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
             "cordova-plugin-shortcuts-android": {},
-            "cordova-plugin-splashscreen": {}
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-admob-free": {
+                "ADMOB_APP_ID": "ca-app-pub-8275293921068244~7115335512"
+            },
+            "cordova-admob-sdk": {
+                "PLAY_SERVICES_VERSION": "16.0.1"
+            }
         },
         "platforms": [
             "android"

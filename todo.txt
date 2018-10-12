@@ -5,10 +5,13 @@ TODO :
 	- investigate language detection on ios
 - Start looking into ads
 - Start looking into IAP
+	- https://github.com/AlexDisler/cordova-plugin-inapppurchase
+	- https://alexdisler.com/2016/02/29/in-app-purchases-ionic-cordova/
 - https://build.phonegap.com/apps/3314481/builds
 - iOS privacy policy
 - try to run on simulator in vbox to test icons and language
 - publicity ideas
+	- https://www.tappx.com/en/promote-your-app/
 	- concurant
 		- dndice
 		- critdice
@@ -23,6 +26,8 @@ TODO :
 		- https://www.reddit.com/r/DnD/comments/2oswpz/good_apps_for_dnd_any_aesthetically_pleasing_dice/
 		- https://www.reddit.com/r/apps/
 		- https://www.reddit.com/r/androidapps/wiki/weeklysuggestions
+		- https://www.reddit.com/r/IPhoneApps/
+		- /r/sideproject, /r/shamelessplug, /r/design_critique, /r/somethingimade
 	- Send a personal message to Tycho if they'd be interested to use it in their d&d podcasts ?
 	- Could I get some content producer to publish something ?
 		- https://www.inverse.com/article/20303-tabletop-rpg-apps-roll20-obsidian-portal-dungeons-and-dragons
