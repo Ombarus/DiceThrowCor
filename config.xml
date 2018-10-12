@@ -52,5 +52,5 @@
     </platform>
     <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
-    <engine name="android" spec="~7.1.1" />
+    <engine name="android" spec="^7.1.1" />
 </widget>

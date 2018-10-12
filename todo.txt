@@ -1,12 +1,16 @@
 TODO :
+- Prepare for final release of V1.0.2 (iOS AND android)
+	- Test toroughly since I updated Cordova
 - Fix iOS issues found by my lone tester
-	- roll history full of "undefined"
-	- erase history buttons (both all and one-by-one) doesn't work
 	- investigate language detection on ios
-- Start looking into ads
-- Start looking into IAP
+- Implement Admob in branch master_admob
+	- https://github.com/ratson/cordova-plugin-admob-free
+		- Issue with needing to include modules but chrome is being shitty about modules that are loaded without a MIME type
+	- https://apps.admob.com/v2/
+	- https://developers.google.com/admob/android/banner
+- Implement IAP to get rid of ads in master_admob branch
+	- https://github.com/AlexDisler/cordova-plugin-inapppurchase
 - https://build.phonegap.com/apps/3314481/builds
-- iOS privacy policy
 - try to run on simulator in vbox to test icons and language
 - publicity ideas
 	- concurant
@@ -100,6 +104,14 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • How many dice were above an arbitrary threshold.
 
 DONE :
+- sorting preset is broken now ?
+- Are you sure ? preset popup appear twice (don't mix $$("a") with $$(document).on("a"))
+- history too
+
+
+
+	
+- iOS privacy policy
 - Close keyboard on "enter" key
 
 
