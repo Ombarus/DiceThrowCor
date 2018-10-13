@@ -52,11 +52,12 @@
     </platform>
     <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
-    <plugin name="cordova-admob-sdk" spec="~0.13.1">
+    <plugin name="cordova-admob-sdk" spec="~0.20.0">
         <variable name="PLAY_SERVICES_VERSION" value="+" />
     </plugin>
     <plugin name="cordova-plugin-admob-free" spec="0.21.0">
         <variable name="ADMOB_APP_ID" value="ca-app-pub-8275293921068244~7115335512" />
     </plugin>
+    <plugin name="cordova-plugin-screen-orientation" spec="3.0.1" />
     <engine name="android" spec="^7.1.1" />
 </widget>
