@@ -1,7 +1,9 @@
 TODO :
+- Make sure Restore purchase work
+- Check billing and ads errors in android console :
+	- config file res/values/billing_key_param.xml requested for changes not found at C:\Dev\Projects\Framework7\DiceThrowCor\platforms\android\res\values\billing_key_param.xml, ignoring
+	- Ads     : App does not have the required permissions to get location
 - Fix iOS issues found by my lone tester
-	- roll history full of "undefined"
-	- erase history buttons (both all and one-by-one) doesn't work
 	- investigate language detection on ios
 - Start looking into ads
 - Start looking into IAP
@@ -62,14 +64,17 @@ Things to document :
 	- skip options will roll basic roll without any bonus or re-roll
 
 :::
-name ideas ?
-	- Dice DM *
-	- Dice Throw
-	- RNG God
-	- Pen&Paper helper
-	- Dice Helper
-	- RPG Dice
-	- Quick Dice
+Release Checklist :
+	- Check version number.
+		- config.xml
+		- about.html
+	- check for stray window.alert or console.log
+	- remove debug shortcuts	
+		
+:::
+Log to search for in logcat :
+.*(SystemWebChromeClient|chromium).*
+
 	
 :::
 short description : 

@@ -10,6 +10,7 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
+        "cc.fovea.cordova.purchase": "^7.2.0",
         "cordova-admob-sdk": "^0.20.0",
         "cordova-android": "^7.1.1",
         "cordova-plugin-admob-free": "^0.21.0",
@@ -31,7 +32,10 @@
             "cordova-admob-sdk": {
                 "PLAY_SERVICES_VERSION": "16.0.1"
             },
-            "cordova-plugin-screen-orientation": {}
+            "cordova-plugin-screen-orientation": {},
+            "cc.fovea.cordova.purchase": {
+                "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxHPPHJbUfn4am8fNEyrEY1Q5RGohwrjYQU8mKgAdAdoBI3huEEW9UnIs5DnIdIvCZIIM7pJEQbpHoeXeV26s08FPv7Hqh/FJ6SD2xcnjAWt4mAmeWLuLhAEdv4rT048GZJh9A3Jv0cG5lPWhrFuYjw5kxbAKiAv+xF34nsaoB4Pugc23CFHNs4kb4Wgn+lAs1/tqJAnz5426PfDZsjjRA8xXRAyGXwYMsU40uS9Z9Z7w90W4JilUE/P2A98AQbvNmTbQKkB6tJheVJz+IGT+7v5NgfNV205VRnnmY6vu6xz1SpQArwbNiBY/p70/o+2WDqVoNhbmQ61h8KGCdz7IEQIDAQAB"
+            }
         },
         "platforms": [
             "android"
