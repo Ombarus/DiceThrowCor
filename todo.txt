@@ -1,5 +1,4 @@
 TODO :
-- Make sure Restore purchase work
 - Check billing and ads errors in android console :
 	- config file res/values/billing_key_param.xml requested for changes not found at C:\Dev\Projects\Framework7\DiceThrowCor\platforms\android\res\values\billing_key_param.xml, ignoring
 	- Ads     : App does not have the required permissions to get location

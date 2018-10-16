@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ombarus.dicedmfree" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ombarus.dicedmfree" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dice DM Free</name>
     <description>
         A fast, simple, practical dice throwing app for all.
@@ -49,6 +49,9 @@
         <icon density="hdpi" src="res/icon/android/004-72.png" />
         <icon density="xhdpi" src="res/icon/android/007-96.png" />
         <preference name="SplashScreenDelay" value="0" />
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </edit-config>
     </platform>
     <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
