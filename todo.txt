@@ -1,15 +1,12 @@
 TODO :
+- Check store descriptionS about no ads & weird permission... instead say there is no locked feature behind paywall.
 - Check billing and ads errors in android console :
 	- config file res/values/billing_key_param.xml requested for changes not found at C:\Dev\Projects\Framework7\DiceThrowCor\platforms\android\res\values\billing_key_param.xml, ignoring
 	- Ads     : App does not have the required permissions to get location
+	- purchase get call everytime app start ?
 - Fix iOS issues found by my lone tester
 	- investigate language detection on ios
-- Start looking into ads
-- Start looking into IAP
-	- https://github.com/AlexDisler/cordova-plugin-inapppurchase
-	- https://alexdisler.com/2016/02/29/in-app-purchases-ionic-cordova/
 - https://build.phonegap.com/apps/3314481/builds
-- iOS privacy policy
 - try to run on simulator in vbox to test icons and language
 - publicity ideas
 	- https://www.tappx.com/en/promote-your-app/
@@ -109,6 +106,11 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • How many dice were above an arbitrary threshold.
 
 DONE :
+- iOS privacy policy
+- Start looking into ads
+- Start looking into IAP
+	- https://github.com/AlexDisler/cordova-plugin-inapppurchase
+	- https://alexdisler.com/2016/02/29/in-app-purchases-ionic-cordova/
 - Close keyboard on "enter" key
 
 
