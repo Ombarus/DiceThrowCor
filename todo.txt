@@ -65,7 +65,8 @@ Release Checklist :
 		- config.xml
 		- about.html
 	- check for stray window.alert or console.log
-	- remove debug shortcuts	
+	- remove debug shortcuts
+	- set iap logging to error
 		
 :::
 Log to search for in logcat :
