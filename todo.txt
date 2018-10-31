@@ -1,5 +1,22 @@
 TODO :
-- Check store descriptionS about no ads & weird permission... instead say there is no locked feature behind paywall.
+Forum Suggestions :
+	- small banner ads instead of "publicity"
+	- ugly splashscreen (?)
+	- ** Don't select text when clicking on info bubble (:/)
+	- Edit preset
+	- Show what the preset is (was it +3 or +4 roll ?)
+	
+	- setting to go always to detail page in result
+	
+	- roll again button
+
+- Link to my app :
+	- Android : https://play.google.com/store/apps/details?id=com.ombarus.dicedmfree
+	- iOS : https://AppStore.com/Dice DM Plus
+		- https://appstore.com/Dice%20DM%20Plus   ****
+		- https://itunes.apple.com/us/app/dice-dm-plus/id1439157899?mt=8&ign-mpt=uo%3D4
+
+
 - Check billing and ads errors in android console :
 	- config file res/values/billing_key_param.xml requested for changes not found at C:\Dev\Projects\Framework7\DiceThrowCor\platforms\android\res\values\billing_key_param.xml, ignoring
 	- Ads     : App does not have the required permissions to get location
@@ -7,7 +24,6 @@ TODO :
 - Fix iOS issues found by my lone tester
 	- investigate language detection on ios
 - https://build.phonegap.com/apps/3314481/builds
-- try to run on simulator in vbox to test icons and language
 - publicity ideas
 	- https://www.tappx.com/en/promote-your-app/
 	- concurant
@@ -21,6 +37,10 @@ TODO :
 	- Make reddit post(s) on D&D, RPG, tabletop subreddit
 		- https://www.reddit.com/r/rpg/comments/7vwf9c/what_is_the_best_most_complete_dice_roller_app/
 		- https://www.reddit.com/r/rpg/comments/910zf2/what_is_the_best_dice_rolling_app_out_there/
+			- Please check out Dice DM (Android, iOS) !
+				I know physically throwing dice is an important part of TableTop gaming but sometimes its just cumbersome (I'm looking at you shadowrun and your 12 dices spellcasting pool !)
+				I found the offerings on the Play Store a bit lacking so I made something with a clean, simple UI yet with a bunch of features (re-rolls, sums, explosion, dropping dices, presets, etc.)
+				I'd really appreciate any feedback.
 		- https://www.reddit.com/r/DnD/comments/2oswpz/good_apps_for_dnd_any_aesthetically_pleasing_dice/
 		- https://www.reddit.com/r/apps/
 		- https://www.reddit.com/r/androidapps/wiki/weeklysuggestions
