@@ -1,4 +1,8 @@
 TODO :
+
+- fix banner on ios pointing to android banner-id
+- Back from preset detail stay stuck on preset page (presetmanage cleans back history ?)
+- translation
 Forum Suggestions :
 	- small banner ads instead of "publicity"
 	- ugly splashscreen (?)
@@ -6,21 +10,10 @@ Forum Suggestions :
 	- Edit preset
 	- Show what the preset is (was it +3 or +4 roll ?)
 	
-	- setting to go always to detail page in result
+	- ***setting to go always to detail page in result
 	
-	- roll again button
+	- ** roll again button
 
-- Link to my app :
-	- Android : https://play.google.com/store/apps/details?id=com.ombarus.dicedmfree
-	- iOS : https://AppStore.com/Dice DM Plus
-		- https://appstore.com/Dice%20DM%20Plus   ****
-		- https://itunes.apple.com/us/app/dice-dm-plus/id1439157899?mt=8&ign-mpt=uo%3D4
-
-
-- Check billing and ads errors in android console :
-	- config file res/values/billing_key_param.xml requested for changes not found at C:\Dev\Projects\Framework7\DiceThrowCor\platforms\android\res\values\billing_key_param.xml, ignoring
-	- Ads     : App does not have the required permissions to get location
-	- purchase get call everytime app start ?
 - Fix iOS issues found by my lone tester
 	- investigate language detection on ios
 - https://build.phonegap.com/apps/3314481/builds
@@ -51,24 +44,14 @@ Forum Suggestions :
 		- https://www.inverse.com/article/20303-tabletop-rpg-apps-roll20-obsidian-portal-dungeons-and-dragons
 - website
 	- https://ombarus.com seemt to generate an "invalid certificate" error ?
-- finish translation
-	- translate missing strings
 - cache kept and dropped results to avoid re-calculating all the time (still shouldn't change results array for history and preset purpose)
 - Can I make Preset more obvious ? (friend tried the game and didn't see them)
 - svg button still slightly deform on larger screen ?
 - Should going to historical results get a "back to history" button instead of "home" button ?
-
-	
-Next Version
-- dice first or stats first settings
-- manage preset could allow rename ? (button on the right and add toggle for sorting that replace rename button ?)
 - find a way to use "back" instead of going /first/ in settings page (because the /first/ might have changed we need to force a reload of the cache and I can't figure out how to do it without trashing the stack)
-- if I release for iOs need to add link to "rate this app" for iOS
 other options ?
 	- Reroll every one
 	- Reroll any number (not only 1s and maxs)
-- Splash (even tough loading is fast) (re-use dice logo ? or Ombarus Dev logo ?)
-	- Not on android ?
 - Can I steal "dark-theme" method and do my own theme (green, yellow, blue, etc. ?) Might be a lot of work because of the SVGs.
 	
 :::
@@ -81,16 +64,31 @@ Things to document :
 
 :::
 Release Checklist :
+	- test hardware back
+	- check app id for :
+		- link to rate my app in index.html
+		- preset settings in my-app.js
 	- Check version number.
 		- config.xml
 		- about.html
 	- check for stray window.alert or console.log
 	- remove debug shortcuts
 	- set iap logging to error
+	- Check for missing translation
 		
 :::
 Log to search for in logcat :
 .*(SystemWebChromeClient|chromium).*
+
+
+:::
+Link to my app :
+	- Android : https://play.google.com/store/apps/details?id=com.ombarus.dicedmfree
+	- iOS : https://AppStore.com/Dice DM Plus
+		- https://appstore.com/Dice%20DM%20Plus   ****
+		- https://itunes.apple.com/us/app/dice-dm-plus/id1439157899?mt=8&ign-mpt=uo%3D4
+
+
 
 	
 :::
@@ -127,6 +125,9 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • How many dice were above an arbitrary threshold.
 
 DONE :
+- Splash (even tough loading is fast) (re-use dice logo ? or Ombarus Dev logo ?)
+	- Not on android ?
+- dice first or stats first settings
 - iOS privacy policy
 - Start looking into ads
 - Start looking into IAP
