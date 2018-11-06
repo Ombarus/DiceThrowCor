@@ -75,6 +75,8 @@ Release Checklist :
 	- remove debug shortcuts
 	- set iap logging to error
 	- Check for missing translation
+	- Check name in about :
+		- ios : Dice DM Plus
 		
 :::
 Log to search for in logcat :
