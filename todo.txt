@@ -1,18 +1,8 @@
 TODO :
 
-- fix banner on ios pointing to android banner-id
-- Back from preset detail stay stuck on preset page (presetmanage cleans back history ?)
-- translation
 Forum Suggestions :
 	- small banner ads instead of "publicity"
 	- ugly splashscreen (?)
-	- ** Don't select text when clicking on info bubble (:/)
-	- Edit preset
-	- Show what the preset is (was it +3 or +4 roll ?)
-	
-	- ***setting to go always to detail page in result
-	
-	- ** roll again button
 
 - Fix iOS issues found by my lone tester
 	- investigate language detection on ios
@@ -77,6 +67,7 @@ Release Checklist :
 	- Check for missing translation
 	- Check name in about :
 		- ios : Dice DM Plus
+		- android : Dice DM Free
 		
 :::
 Log to search for in logcat :
@@ -87,9 +78,17 @@ Log to search for in logcat :
 Link to my app :
 	- Android : https://play.google.com/store/apps/details?id=com.ombarus.dicedmfree
 	- iOS : https://AppStore.com/Dice DM Plus
-		- https://appstore.com/Dice%20DM%20Plus   ****
 		- https://itunes.apple.com/us/app/dice-dm-plus/id1439157899?mt=8&ign-mpt=uo%3D4
 
+
+:: update description
+<en-US>
+Bug fixes and new features :
+• You can now edit a preset from the Preset management page
+• Clicking on info-bubbles will not select text anymore
+• New setting to choose which result page to display by default (stats or detail)
+• Reroll button in result page (next to Save Preset in the "more" menu)
+</en-US>
 
 
 	
@@ -126,7 +125,74 @@ Result page displays all your dice throws but also feature many pre-calculated r
 • Number of critical miss
 • How many dice were above an arbitrary threshold.
 
+:: Desc FR (paid)
+Lancez n'importe quel dés typiques de D&D en quelques clics. Cette application ce veux légère tout en permettant n'importe quel génération de nombres aléatoires et inclus les options courantes de jeux de table.
+
+Vous pouvez entre autre :
+
+• Lancer un nombre illimité de dés en un seul coup.
+• Lancer n'importe quel type de dé (incluant des configurations impossibles comme des dés à 431 faces)
+• Historique des lancers
+• Relancer les 1
+• Relancer les critiques (Style Shadowrun)
+• Ignorer les meilleurs ou les pires résultats
+• Ajouter des bonus et malus à chaque lancer ou à la somme finale
+• Sauvegarder des configurations de dés pour lancer encore plus vite
+• Un choix de thème clair ou sombre
+• Afficher les résultats dans leur ordre naturel ou décroissant
+• Configurer la page d’accueil
+• Utilise sa propre librairie de nombre aléatoire pour s'assurer qu'aucune triche n'est possible
+• Pas de publicité
+
+La page de résultat affiche chacun des lancer mais aussi plusieurs calculs utiles. 
+
+• Somme des dés
+• Moyenne
+• Meilleur dé
+• Pire dé
+• Nombre de dés critiques
+• Nombre d'échecs critiques
+• Compte le nombre de dé au dessus d'un certain seuil
+
+
+
+
+(free)
+
+
+Lancez n'importe quel dés typiques de D&D en quelques clics. Cette application ce veux légère tout en permettant n'importe quel génération de nombres aléatoires et inclus les options courantes de jeux de table.
+
+Vous pouvez entre autres :
+
+• Lancer un nombre illimité de dés en un seul coup.
+• Lancer n'importe quel type de dé (incluant des configurations impossibles comme des dés à 431 faces)
+• Historique des lancers
+• Relancer les 1
+• Relancer les critiques (Style Shadowrun)
+• Ignorer les meilleurs ou les pires résultats
+• Ajouter des bonus et malus à chaque lancer et à la somme finale
+• Sauvegarder des configurations de dés pour lancer encore plus vite
+• Un choix de thème clair ou sombre
+• Afficher les résultats dans leur ordre naturel ou décroissant
+• Configurer la page d’accueil
+• L'app utilise sa propre librairie de nombre aléatoire pour s'assurer qu'aucune triche n'est possible
+• Aucune fonctionnalité bloqué. Un seul achat intégré pour enlever la publicité et encourager le Développeur.
+
+La page de résultat affiche chacun des lancer mais aussi plusieurs calculs utiles. 
+
+• Somme des dés
+• Moyenne
+• Meilleur dé
+• Pire dé
+• Nombre de dés critiques
+• Nombre d'échecs critiques
+• Compte le nombre de dé au dessus d'un certain seuil
+
+
 DONE :
+- translation
+- Back from preset detail stay stuck on preset page (presetmanage cleans back history ?)
+- fix banner on ios pointing to android banner-id
 - Splash (even tough loading is fast) (re-use dice logo ? or Ombarus Dev logo ?)
 	- Not on android ?
 - dice first or stats first settings
