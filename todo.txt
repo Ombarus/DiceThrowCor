@@ -1,5 +1,6 @@
-TODO :
+﻿TODO :
 
+- Extra tab for multiple rolls that show the total of each roll (3 * 6d6 shows the sum of the 3 rolls)
 Forum Suggestions :
 	- small banner ads instead of "publicity"
 	- ugly splashscreen (?)
@@ -90,7 +91,15 @@ Bug fixes and new features :
 • Reroll button in result page (next to Save Preset in the "more" menu)
 </en-US>
 
+Plusieurs améliorations :
+• Les Raccourcis peuvent maintenant être modifié à partir de la page de gestion
+    • Bug de slider fixé dans la version 2.1.1
+• Ajout d'un bouton dans la page de résultat pour rapidement re-lancer les mêmes dés (Situé dans le menu pour sauvegarder les Raccourcis)
+• Ajout d'une configuration pour choisir la page de résultat par default (Statistiques ou Détail)
+• Cliquer sur les info-bulles ne devrait plus sélectionner le texte en dessous
 
+プリセット編集
+もう一度振るボタン追加しました。
 	
 :::
 short description : 
