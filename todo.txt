@@ -1,8 +1,12 @@
 ﻿TODO :
 
+- Change App Icon to new "rounded-Square" format
+- Update Privacy policy for free version
+- Upload updated version compiled with latest cordova & APIs (at min target api 28 (Android 9))
+- Complete "made for children" questionaire (should I set the tag madeforkids ?)
+
 - Extra tab for multiple rolls that show the total of each roll (3 * 6d6 shows the sum of the 3 rolls)
 Forum Suggestions :
-	- small banner ads instead of "publicity"
 	- ugly splashscreen (?)
 
 - Fix iOS issues found by my lone tester
@@ -55,6 +59,7 @@ Things to document :
 
 :::
 Release Checklist :
+	- remove use_test=true in admob.js
 	- test hardware back
 	- check app id for :
 		- link to rate my app in index.html

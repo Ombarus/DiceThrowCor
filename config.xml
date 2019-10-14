@@ -49,6 +49,7 @@
         <icon density="hdpi" src="res/icon/android/004-72.png" />
         <icon density="xhdpi" src="res/icon/android/007-96.png" />
         <preference name="SplashScreenDelay" value="0" />
+        <preference name="android-targetSdkVersion" value="28" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
         </edit-config>
@@ -58,11 +59,11 @@
     <plugin name="cordova-admob-sdk" spec="~0.20.0">
         <variable name="PLAY_SERVICES_VERSION" value="+" />
     </plugin>
-    <plugin name="cordova-plugin-admob-free" spec="0.21.0">
+    <plugin name="cordova-plugin-screen-orientation" spec="3.0.1" />
+    <plugin name="cordova-plugin-admob-free" spec="0.27.0">
         <variable name="ADMOB_APP_ID" value="ca-app-pub-8275293921068244~7115335512" />
     </plugin>
-    <plugin name="cordova-plugin-screen-orientation" spec="3.0.1" />
-    <plugin name="cc.fovea.cordova.purchase" spec="^7.2.0">
+    <plugin name="cc.fovea.cordova.purchase" spec="^8.1.1">
         <variable name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxHPPHJbUfn4am8fNEyrEY1Q5RGohwrjYQU8mKgAdAdoBI3huEEW9UnIs5DnIdIvCZIIM7pJEQbpHoeXeV26s08FPv7Hqh/FJ6SD2xcnjAWt4mAmeWLuLhAEdv4rT048GZJh9A3Jv0cG5lPWhrFuYjw5kxbAKiAv+xF34nsaoB4Pugc23CFHNs4kb4Wgn+lAs1/tqJAnz5426PfDZsjjRA8xXRAyGXwYMsU40uS9Z9Z7w90W4JilUE/P2A98AQbvNmTbQKkB6tJheVJz+IGT+7v5NgfNV205VRnnmY6vu6xz1SpQArwbNiBY/p70/o+2WDqVoNhbmQ61h8KGCdz7IEQIDAQAB" />
     </plugin>
     <engine name="android" spec="^7.1.1" />
