@@ -1,5 +1,6 @@
 ﻿TODO :
 
+- update bonus/malus limit to +-20
 - Change App Icon to new "rounded-Square" format
 - Update Privacy policy for free version
 - Upload updated version compiled with latest cordova & APIs (at min target api 28 (Android 9))
