@@ -44,11 +44,29 @@
         <preference name="SplashScreenDelay" value="0" />
     </platform>
     <platform name="android">
-        <icon density="ldpi" src="res/icon/android/004-36.png" />
-        <icon density="mdpi" src="res/icon/android/004-48.png" />
-        <icon density="hdpi" src="res/icon/android/004-72.png" />
-        <icon density="xhdpi" src="res/icon/android/007-96.png" />
+        <icon density="ldpi" background="res/icon/android/008-36-bg.png" foreground="res/icon/android/008-36-fg.png" />
+		<icon density="mdpi" background="res/icon/android/008-48-bg.png" foreground="res/icon/android/008-48-fg.png" />
+		<icon density="hdpi" background="res/icon/android/008-72-bg.png" foreground="res/icon/android/008-72-fg.png" />
+		<icon density="xhdpi" background="res/icon/android/008-96-bg.png" foreground="res/icon/android/008-96-fg.png" />
+		<icon density="xxhdpi" background="res/icon/android/008-144-bg.png" foreground="res/icon/android/008-144-fg.png" />
+		<icon density="xxxhdpi" background="res/icon/android/008-192-bg.png" foreground="res/icon/android/008-192-fg.png" />
+		<!-- TODO -->
+		<splash src="res/screen/android/ombarus-ldpi-land.png" density="land-ldpi"/>
+		<splash src="res/screen/android/ombarus-mdpi-land.png" density="land-mdpi"/>
+		<splash src="res/screen/android/ombarus-hdpi-land.png" density="land-hdpi"/>
+		<splash src="res/screen/android/ombarus-xhdpi-land.png" density="land-xhdpi"/>
+		<splash src="res/screen/android/ombarus-xxhdpi-land.png" density="land-xxhdpi"/>
+		<splash src="res/screen/android/ombarus-xxxhdpi-land.png" density="land-xxxhdpi"/>
+
+		<splash src="res/screen/android/ombarus-ldpi-port.png" density="port-ldpi"/>
+		<splash src="res/screen/android/ombarus-mdpi-port.png.png" density="port-mdpi"/>
+		<splash src="res/screen/android/ombarus-hdpi-port.png.png" density="port-hdpi"/>
+		<splash src="res/screen/android/ombarus-xhdpi-port.png.png" density="port-xhdpi"/>
+		<splash src="res/screen/android/ombarus-xxhdpi-port.png.png" density="port-xxhdpi"/>
+		<splash src="res/screen/android/ombarus-xxxhdpi-port.png.png" density="port-xxxhdpi"/>
+		
         <preference name="SplashScreenDelay" value="0" />
+		<preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="android-targetSdkVersion" value="28" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
