@@ -44,12 +44,12 @@
         <preference name="SplashScreenDelay" value="0" />
     </platform>
     <platform name="android">
-        <icon density="ldpi" background="res/icon/android/008-36-bg.png" foreground="res/icon/android/008-36-fg.png" />
-		<icon density="mdpi" background="res/icon/android/008-48-bg.png" foreground="res/icon/android/008-48-fg.png" />
-		<icon density="hdpi" background="res/icon/android/008-72-bg.png" foreground="res/icon/android/008-72-fg.png" />
-		<icon density="xhdpi" background="res/icon/android/008-96-bg.png" foreground="res/icon/android/008-96-fg.png" />
-		<icon density="xxhdpi" background="res/icon/android/008-144-bg.png" foreground="res/icon/android/008-144-fg.png" />
-		<icon density="xxxhdpi" background="res/icon/android/008-192-bg.png" foreground="res/icon/android/008-192-fg.png" />
+        <icon density="ldpi" background="res/icon/android/009-36-bg.png" foreground="res/icon/android/009-36-fg.png" />
+		<icon density="mdpi" background="res/icon/android/009-48-bg.png" foreground="res/icon/android/009-48-fg.png" />
+		<icon density="hdpi" background="res/icon/android/009-72-bg.png" foreground="res/icon/android/009-72-fg.png" />
+		<icon density="xhdpi" background="res/icon/android/009-96-bg.png" foreground="res/icon/android/009-96-fg.png" />
+		<icon density="xxhdpi" background="res/icon/android/009-144-bg.png" foreground="res/icon/android/009-144-fg.png" />
+		<icon density="xxxhdpi" background="res/icon/android/009-192-bg.png" foreground="res/icon/android/009-192-fg.png" />
 		
 		
 		<splash src="res/screen/android/ombarus-ldpi-port.png" density="ldpi"/>

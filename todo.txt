@@ -62,6 +62,8 @@ Things to document :
 Release Checklist :
 	- remove use_test=true in admob.js
 	- test hardware back
+		- Check to apply patch https://github.com/apache/cordova-plugin-splashscreen/pull/225/files
+			if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.P) {
 	- check app id for :
 		- link to rate my app in index.html
 		- preset settings in my-app.js
