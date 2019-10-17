@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ombarus.dicedm" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ombarus.dicedm" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dice DM</name>
     <description>
         A fast, simple, practical dice throwing app for all.
@@ -44,13 +44,37 @@
         <preference name="SplashScreenDelay" value="0" />
     </platform>
     <platform name="android">
-        <icon density="ldpi" src="res/icon/android/004-36.png" />
-        <icon density="mdpi" src="res/icon/android/004-48.png" />
-        <icon density="hdpi" src="res/icon/android/004-72.png" />
-        <icon density="xhdpi" src="res/icon/android/007-96.png" />
+        <icon density="ldpi" background="res/icon/android/009-36-bg.png" foreground="res/icon/android/009-36-fg.png" />
+		<icon density="mdpi" background="res/icon/android/009-48-bg.png" foreground="res/icon/android/009-48-fg.png" />
+		<icon density="hdpi" background="res/icon/android/009-72-bg.png" foreground="res/icon/android/009-72-fg.png" />
+		<icon density="xhdpi" background="res/icon/android/009-96-bg.png" foreground="res/icon/android/009-96-fg.png" />
+		<icon density="xxhdpi" background="res/icon/android/009-144-bg.png" foreground="res/icon/android/009-144-fg.png" />
+		<icon density="xxxhdpi" background="res/icon/android/009-192-bg.png" foreground="res/icon/android/009-192-fg.png" />
+		
+		
+		<splash src="res/screen/android/ombarus-ldpi-port.png" density="ldpi"/>
+		<splash src="res/screen/android/ombarus-mdpi-port.png" density="mdpi"/>
+		<splash src="res/screen/android/ombarus-hdpi-port.png" density="hdpi"/>
+		<splash src="res/screen/android/ombarus-xhdpi-port.png" density="xhdpi"/>
+		<splash src="res/screen/android/ombarus-xxhdpi-port.png" density="xxhdpi"/>
+		<splash src="res/screen/android/ombarus-xxxhdpi-port.png" density="xxxhdpi"/>
+		
+		<splash src="res/screen/android/ombarus-ldpi-land.png" density="land-ldpi"/>
+		<splash src="res/screen/android/ombarus-mdpi-land.png" density="land-mdpi"/>
+		<splash src="res/screen/android/ombarus-hdpi-land.png" density="land-hdpi"/>
+		<splash src="res/screen/android/ombarus-xhdpi-land.png" density="land-xhdpi"/>
+		<splash src="res/screen/android/ombarus-xxhdpi-land.png" density="land-xxhdpi"/>
+		<splash src="res/screen/android/ombarus-xxxhdpi-land.png" density="land-xxxhdpi"/>
+
+		<splash src="res/screen/android/ombarus-ldpi-port.png" density="port-ldpi"/>
+		<splash src="res/screen/android/ombarus-mdpi-port.png" density="port-mdpi"/>
+		<splash src="res/screen/android/ombarus-hdpi-port.png" density="port-hdpi"/>
+		<splash src="res/screen/android/ombarus-xhdpi-port.png" density="port-xhdpi"/>
+		<splash src="res/screen/android/ombarus-xxhdpi-port.png" density="port-xxhdpi"/>
+		<splash src="res/screen/android/ombarus-xxxhdpi-port.png" density="port-xxxhdpi"/>
+		
         <preference name="SplashScreenDelay" value="0" />
+		<preference name="SplashMaintainAspectRatio" value="true" />
+        <preference name="android-targetSdkVersion" value="28" />
     </platform>
-    <plugin name="cordova-plugin-shortcuts-android" spec="^0.1.0" />
-    <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
-    <engine name="android" spec="^7.1.1" />
 </widget>

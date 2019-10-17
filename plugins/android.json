@@ -7,16 +7,21 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "com.ombarus.dicedm"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.ombarus.dicedm"
+    },
     "cordova-plugin-shortcuts-android": {
+      "PACKAGE_NAME": "com.ombarus.dicedm"
+    },
+    "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.ombarus.dicedm"
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.ombarus.dicedm"
     }
   },
-  "dependent_plugins": {
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.ombarus.dicedm"
-    }
-  }
+  "dependent_plugins": {}
 }
